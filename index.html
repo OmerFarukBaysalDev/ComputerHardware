@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grafik Tasarım Temel Bilgiler Sınavı</title>
+    <title>Web Tasarım ve Kodlama Sınavı</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
@@ -201,7 +201,7 @@
 <div class="quiz-container">
     <div id="quiz-screen">
         <div class="header">
-            <h1 class="title">Temel Tasarım Bilgisi</h1>
+            <h1 class="title">Web Tasarım & CSS Sınavı</h1>
             <div class="stats">
                 <div class="stat-box question-count">
                     <i class="fa-solid fa-layer-group"></i> <span id="current-q">1</span>/50
@@ -249,268 +249,265 @@
 </div>
 
 <script>
-    // --- SORU HAVUZU (50 TEMEL SORU) ---
     const questions = [
-        // --- 1. HAFTA & TEMEL KAVRAMLAR ---
+        // --- BÖLÜM 1: TEMEL HTML KAVRAMLARI (Ders Notları 1-3. Hafta) ---
         {
-            question: "Bilgisayar ekranlarında kullanılan, ışık tabanlı renk modu hangisidir?",
-            options: ["RGB", "CMYK", "Grayscale (Gri Tonlama)", "Bitmap"],
-            answer: "RGB"
+            question: "HTML'in açılımı aşağıdakilerden hangisidir?",
+            options: ["Hyper Tool Markup Language", "Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language"],
+            answer: "Hyper Text Markup Language"
         },
         {
-            question: "Matbaa ve baskı işlerinde hangi renk modu kullanılır?",
-            options: ["RGB", "CMYK", "Hex", "Lab"],
-            answer: "CMYK"
+            question: "HTML kodlarında sayfanın başlığı (tarayıcı sekmesinde görünen kısım) hangi etiketler arasına yazılır?",
+            options: ["<header>", "<title>", "<body>", "<h1>"],
+            answer: "<title>"
         },
         {
-            question: "Aşağıdakilerden hangisi piksel tabanlı (büyütünce bozulan) bir programdır?",
-            options: ["Adobe Photoshop", "Adobe Illustrator", "CorelDRAW", "AutoCAD"],
-            answer: "Adobe Photoshop"
+            question: "HTML sayfalarında kullanıcı tarafından görülen tüm içerik hangi etiketler arasında yer alır?",
+            options: ["<head>", "<title>", "<body>", "<footer>"],
+            answer: "<body>"
         },
         {
-            question: "Aşağıdakilerden hangisi vektör tabanlı (büyütünce bozulmayan) bir programdır?",
-            options: ["Adobe Photoshop", "Microsoft Paint", "Adobe Illustrator", "GIMP"],
-            answer: "Adobe Illustrator"
+            question: "HTML'de en büyük başlık etiketi aşağıdakilerden hangisidir?",
+            options: ["<h1>", "<h6>", "<header>", "<head>"],
+            answer: "<h1>"
         },
         {
-            question: "Web sitelerinde kullanılan, şeffaf arka planı destekleyen görsel formatı hangisidir?",
-            options: ["JPG", "PNG", "TXT", "MP4"],
-            answer: "PNG"
+            question: "HTML'de bir alt satıra geçmek için kullanılan etiket hangisidir?",
+            options: ["<lb>", "<break>", "<br>", "<p>"],
+            answer: "<br>"
         },
         {
-            question: "Baskı için ideal görsel çözünürlüğü kaç DPI olmalıdır?",
-            options: ["72 DPI", "96 DPI", "150 DPI", "300 DPI"],
-            answer: "300 DPI"
+            question: "HTML'de bir bağlantı (köprü/link) oluşturmak için hangi etiket kullanılır?",
+            options: ["<link>", "<a>", "<href>", "<url>"],
+            answer: "<a>"
         },
         {
-            question: "Sadece ekran kullanımı (Web, Mobil) için yeterli olan çözünürlük nedir?",
-            options: ["300 DPI", "72 DPI", "600 DPI", "1200 DPI"],
-            answer: "72 DPI"
+            question: "Bir bağlantının yeni bir sekmede açılmasını sağlayan özellik (attribute) hangisidir?",
+            options: ["target=\"_blank\"", "target=\"_new\"", "window=\"new\"", "open=\"tab\""],
+            answer: "target=\"_blank\""
         },
         {
-            question: "Kırmızı, Yeşil ve Mavi renklerin karışımından oluşan renk uzayı hangisidir?",
-            options: ["CMYK", "RGB", "HSB", "PANTONE"],
-            answer: "RGB"
-        },
-
-        // --- PHOTOSHOP TEMEL ARAÇLAR ---
-        {
-            question: "Photoshop'ta nesneleri taşımak için kullanılan 'Move Tool' (Taşıma Aracı) simgesi nedir?",
-            options: ["Bir el işareti", "Bir fırça", "Dört yönlü ok", "Bir silgi"],
-            answer: "Dört yönlü ok"
+            question: "E-posta gönderme bağlantısı oluşturmak için href özelliğine ne yazılmalıdır?",
+            options: ["email:", "send:", "mailto:", "post:"],
+            answer: "mailto:"
         },
         {
-            question: "Photoshop'ta görselin istenmeyen kenarlarını kesip atmaya yarayan araç hangisidir?",
-            options: ["Crop Tool (Kırpma Aracı)", "Brush Tool (Fırça Aracı)", "Type Tool (Metin Aracı)", "Zoom Tool (Yakınlaştırma Aracı)"],
-            answer: "Crop Tool (Kırpma Aracı)"
+            question: "Sayfa içi bağlantı oluşturmak için id ile belirtilen bir alana nasıl link verilir?",
+            options: ["href=\"@altkisim\"", "href=\"#altkisim\"", "href=\".altkisim\"", "href=\"*altkisim\""],
+            answer: "href=\"#altkisim\""
         },
         {
-            question: "Görsel üzerine yazı yazmak için hangi araç kullanılır?",
-            options: ["Pen Tool (Kalem Aracı)", "Type Tool (Metin/Yazım Aracı)", "Eraser Tool (Silgi Aracı)", "Selection Tool (Seçim Aracı)"],
-            answer: "Type Tool (Metin/Yazım Aracı)"
-        },
-        {
-            question: "Görseldeki belirli bir alanı boyamak için kullanılan araç hangisidir?",
-            options: ["Brush Tool (Fırça Aracı)", "Move Tool (Taşıma Aracı)", "Hand Tool (El Aracı)", "Crop Tool (Kırpma Aracı)"],
-            answer: "Brush Tool (Fırça Aracı)"
-        },
-        {
-            question: "Hatalı veya istenmeyen bir alanı silmek için hangi araç kullanılır?",
-            options: ["Brush Tool (Fırça Aracı)", "Eraser Tool (Silgi Aracı)", "Pen Tool (Kalem Aracı)", "Type Tool (Metin Aracı)"],
-            answer: "Eraser Tool (Silgi Aracı)"
-        },
-        {
-            question: "Görsele yaklaşıp detayları görmek için hangi araç kullanılır?",
-            options: ["Hand Tool (El Aracı)", "Zoom Tool (Yakınlaştırma Aracı)", "Move Tool (Taşıma Aracı)", "Eraser Tool (Silgi Aracı)"],
-            answer: "Zoom Tool (Yakınlaştırma Aracı)"
-        },
-        {
-            question: "Photoshop'ta 'Undo' (Geri Al) işleminin klavye kısayolu genellikle nedir?",
-            options: ["Ctrl + Z", "Ctrl + S", "Ctrl + P", "Ctrl + C"],
-            answer: "Ctrl + Z"
-        },
-        {
-            question: "Bir görseli kaydetmek için kullanılan kısayol nedir?",
-            options: ["Ctrl + S", "Ctrl + V", "Ctrl + Z", "Ctrl + N"],
-            answer: "Ctrl + S"
+            question: "HTML'de yorum satırı (tarayıcıda görünmeyen kod) nasıl tanımlanır?",
+            options: ["// Yorum", "/* Yorum */", "", "# Yorum"],
+            answer: ""
         },
 
-        // --- PHOTOSHOP KATMANLAR & MASKELEME ---
+        // --- BÖLÜM 2: CSS TEMELLERİ & SEÇİCİLER (CSS.pptx) ---
         {
-            question: "Photoshop'ta çalışmaların üst üste binmesini sağlayan şeffaf sayfalara ne denir?",
-            options: ["Pixel (Piksel)", "Layer (Katman)", "Vector (Vektör)", "Menu (Menü)"],
-            answer: "Layer (Katman)"
+            question: "CSS'in açılımı nedir?",
+            options: ["Creative Style Sheets", "Cascading Style Sheets", "Computer Style Sheets", "Colorful Style Sheets"],
+            answer: "Cascading Style Sheets"
         },
         {
-            question: "Bir görseli kalıcı olarak silmeden, sadece gizlemek için ne kullanılır?",
-            options: ["Eraser Tool (Silgi Aracı)", "Crop Tool (Kırpma Aracı)", "Layer Mask (Katman Maskesi)", "Paint Bucket (Boya Kovası)"],
-            answer: "Layer Mask (Katman Maskesi)"
+            question: "CSS'de bir HTML etiketine ID vererek stil uygulamak için hangi işaret kullanılır?",
+            options: [". (Nokta)", "# (Kare)", "@ (Et)", "& (Ve)"],
+            answer: "# (Kare)"
         },
         {
-            question: "Katman maskesinde 'Siyah' renk ne işe yarar?",
-            options: ["O bölgeyi gizler (görünmez yapar)", "O bölgeyi beyazlatır", "O bölgeyi görünür yapar", "Hiçbir şey yapmaz"],
-            answer: "O bölgeyi gizler (görünmez yapar)"
+            question: "CSS'de bir HTML etiketine CLASS vererek stil uygulamak için hangi işaret kullanılır?",
+            options: [". (Nokta)", "# (Kare)", "* (Yıldız)", "$ (Dolar)"],
+            answer: ". (Nokta)"
         },
         {
-            question: "Photoshop'un kendi düzenlenebilir dosya formatı nedir?",
-            options: [".JPG", ".PNG", ".PSD", ".PDF"],
-            answer: ".PSD"
+            question: "CSS'de metin rengini değiştirmek için hangi özellik kullanılır?",
+            options: ["font-color", "text-color", "color", "background-color"],
+            answer: "color"
         },
         {
-            question: "Bir görselin boyutunu değiştirmek veya döndürmek için hangi komut kullanılır?",
-            options: ["Free Transform (Serbest Dönüştürme - Ctrl+T)", "Save (Kaydet)", "New File (Yeni Dosya)", "Copy (Kopyala)"],
-            answer: "Free Transform (Serbest Dönüştürme - Ctrl+T)"
-        },
-
-        // --- ILLUSTRATOR TEMEL ---
-        {
-            question: "Adobe Illustrator'da çizilen görsellerin (logoların) en büyük avantajı nedir?",
-            options: ["Fotoğraf gibi görünürler", "Büyütülünce kalitesi bozulmaz", "Sadece siyahtır", "Hareketlidir"],
-            answer: "Büyütülünce kalitesi bozulmaz"
+            question: "Arka plan rengini değiştirmek için kullanılan CSS özelliği hangisidir?",
+            options: ["color", "bg-color", "background-color", "back-color"],
+            answer: "background-color"
         },
         {
-            question: "Illustrator'da bir nesneyi bir bütün olarak seçip taşımak için hangi araç kullanılır?",
-            options: ["Selection Tool (Seçim Aracı)", "Eraser Tool (Silgi Aracı)", "Type Tool (Metin Aracı)", "Brush Tool (Fırça Aracı)"],
-            answer: "Selection Tool (Seçim Aracı)"
+            question: "HTML içerisine satır içi (inline) CSS yazmak için hangi özellik kullanılır?",
+            options: ["style", "css", "class", "design"],
+            answer: "style"
         },
         {
-            question: "Illustrator'da bir şeklin sadece köşe noktalarını (detaylarını) değiştirmek için hangi araç kullanılır?",
-            options: ["Selection Tool (Seçim Aracı)", "Direct Selection Tool (Doğrudan Seçim Aracı)", "Crop Tool (Kırpma Aracı)", "Type Tool (Yazı Aracı)"],
-            answer: "Direct Selection Tool (Doğrudan Seçim Aracı)"
+            question: "Harici bir CSS dosyasını HTML sayfasına bağlamak için hangi etiket kullanılır?",
+            options: ["<style>", "<script>", "<link>", "<css>"],
+            answer: "<link>"
         },
         {
-            question: "Noktalar koyarak özel ve serbest şekiller çizmemizi sağlayan temel çizim aracı hangisidir?",
-            options: ["Pen Tool (Kalem Aracı)", "Eraser Tool (Silgi Aracı)", "Rectangle Tool (Dikdörtgen Aracı)", "Zoom Tool (Yakınlaştırma Aracı)"],
-            answer: "Pen Tool (Kalem Aracı)"
+            question: "Hücre içi (iç kenar) boşluk vermek için kullanılan CSS özelliği hangisidir?",
+            options: ["margin", "padding", "border", "spacing"],
+            answer: "padding"
         },
         {
-            question: "Illustrator'da kare, dikdörtgen veya yuvarlak çizmek için kullanılan araç grubu hangisidir?",
-            options: ["Shape Tools (Şekil Araçları)", "Type Tools (Yazı Araçları)", "Eraser Tools (Silgi Araçları)", "Hand Tool (El Aracı)"],
-            answer: "Shape Tools (Şekil Araçları)"
+            question: "Hücre dışı (dış kenar) boşluk vermek için kullanılan CSS özelliği hangisidir?",
+            options: ["padding", "margin", "border", "outline"],
+            answer: "margin"
         },
         {
-            question: "Birden fazla şekli birleştirip tek bir şekil yapmak için kullanılan pratik araç hangisidir?",
-            options: ["Shape Builder Tool (Şekil Oluşturucu)", "Eraser (Silgi)", "Scissors (Makas)", "Brush (Fırça)"],
-            answer: "Shape Builder Tool (Şekil Oluşturucu)"
-        },
-        {
-            question: "Illustrator'ın düzenlenebilir kendi dosya formatı nedir?",
-            options: [".AI", ".PSD", ".DOCX", ".JPG"],
-            answer: ".AI"
-        },
-        {
-            question: "Matbaa kesim hatası olmasın diye tasarımın kenarına eklenen güvenlik payına ne denir?",
-            options: ["Bleed (Taşma Payı)", "Margin (Kenar Boşluğu)", "Leading (Satır Aralığı)", "Pixel (Piksel)"],
-            answer: "Bleed (Taşma Payı)"
-        },
-        {
-            question: "Illustrator'da bir rengin kopyasını almak için hangi araç kullanılır?",
-            options: ["Eyedropper Tool (Damlalık Aracı)", "Eraser (Silgi)", "Pen (Kalem)", "Hand Tool (El Aracı)"],
-            answer: "Eyedropper Tool (Damlalık Aracı)"
-        },
-        {
-            question: "İki renk arasında yumuşak geçiş yapmak için hangi özellik kullanılır?",
-            options: ["Gradient (Renk Geçişi)", "Sharpen (Keskinlik)", "Blur (Bulanıklık)", "Crop (Kırpma)"],
-            answer: "Gradient (Renk Geçişi)"
+            question: "Tüm HTML elementlerini seçmek için kullanılan CSS seçicisi hangisidir?",
+            options: ["#", ".", "*", "body"],
+            answer: "*"
         },
 
-        // --- INDESIGN TEMEL ---
+        // --- BÖLÜM 3: ÖZEL CSS KONULARI (!important, transition, animation, border-radius, object-position) ---
         {
-            question: "Adobe InDesign programı en çok ne için kullanılır?",
-            options: ["Video montajı", "Fotoğraf düzenleme", "Çok sayfalı dergi ve kitap tasarımı", "3D çizim"],
-            answer: "Çok sayfalı dergi ve kitap tasarımı"
+            question: "CSS'de 'border-radius' özelliği ne işe yarar?",
+            options: ["Kenarlara gölge ekler", "Kenarlık rengini değiştirir", "Köşeleri yuvarlatır (oval yapar)", "Kenarlık kalınlığını ayarlar"],
+            answer: "Köşeleri yuvarlatır (oval yapar)"
         },
         {
-            question: "InDesign'da her sayfada otomatik olarak aynı logonun çıkması için işlem nereye yapılır?",
-            options: ["Master Page (Ana Sayfa / Kalıp)", "Son Sayfa", "İlk Sayfa", "Rastgele bir sayfa"],
-            answer: "Master Page (Ana Sayfa / Kalıp)"
+            question: "Bir CSS kuralının diğer tüm kuralları ezerek (baskın çıkarak) uygulanmasını sağlamak için hangisi kullanılır?",
+            options: ["!priority", "!override", "!important", "!force"],
+            answer: "!important"
         },
         {
-            question: "InDesign dosya uzantısı nedir?",
-            options: [".INDD", ".PSD", ".AI", ".MP3"],
-            answer: ".INDD"
+            question: "CSS'de elementlerin özellik değişimlerinin (örneğin hover durumunda) zamana yayılarak yumuşak olmasını sağlayan özellik nedir?",
+            options: ["animation", "transform", "transition", "decoration"],
+            answer: "transition"
         },
         {
-            question: "InDesign'da yazı yazmak için önce ne yapmak gerekir?",
-            options: ["Bir metin kutusu açmak", "Doğrudan ekrana tıklamak", "Fırçayı seçmek", "Silgiyi seçmek"],
-            answer: "Bir metin kutusu açmak"
+            question: "Kullanıcı etkileşimi olmadan elementlerin hareket etmesini veya şekil değiştirmesini sağlayan yapı nedir?",
+            options: ["transition", "animation (@keyframes)", "transform", "hover"],
+            answer: "animation (@keyframes)"
+        },
+        {
+            question: "Bir resmin veya videonun kapsayıcısı (kutusu) içerisindeki hizalamasını ayarlamak için hangi özellik kullanılır?",
+            options: ["background-position", "object-position", "text-align", "justify-content"],
+            answer: "object-position"
+        },
+        {
+            question: "CSS'de animasyonun zaman akış eğrisini (hızlanma/yavaşlama) belirleyen özellik hangisidir?",
+            options: ["transition-duration", "transition-timing-function", "animation-delay", "animation-name"],
+            answer: "transition-timing-function"
+        },
+        {
+            question: "Bir elementin üzerine mouse ile gelindiğinde stil değiştirmesini sağlayan sözde sınıf (pseudo-class) hangisidir?",
+            options: [":active", ":focus", ":hover", ":visited"],
+            answer: ":hover"
+        },
+        {
+            question: "CSS'de bir öğeyi tamamen gizlemek ve yer kaplamamasını sağlamak için hangisi kullanılır?",
+            options: ["visibility: hidden", "display: none", "opacity: 0", "z-index: -1"],
+            answer: "display: none"
+        },
+        {
+            question: "Opacity: 0.5 kodu ne anlama gelir?",
+            options: ["Öğe tamamen görünmez olur", "Öğe %50 şeffaf olur", "Öğe siyah beyaz olur", "Öğe 50px kaydırılır"],
+            answer: "Öğe %50 şeffaf olur"
+        },
+        {
+            question: "Z-index özelliği ne işe yarar?",
+            options: ["Yazı boyutunu ayarlar", "Elementlerin katman sırasını (öne/arkaya geçmesini) belirler", "Saydamlığı ayarlar", "Yatay hizalama yapar"],
+            answer: "Elementlerin katman sırasını (öne/arkaya geçmesini) belirler"
         },
 
-        // --- GENEL & KARIŞIK ---
+        // --- BÖLÜM 4: TABLOLAR VE FORMLAR (Ders Notları 4-5. Hafta) ---
         {
-            question: "Bir nesneyi kopyalamak için genellikle hangi tuşa basılı tutarak sürükleriz?",
-            options: ["Alt", "Shift", "Caps Lock", "Tab"],
-            answer: "Alt"
+            question: "HTML'de tablo oluşturmak için kullanılan ana etiket hangisidir?",
+            options: ["<tab>", "<table>", "<list>", "<grid>"],
+            answer: "<table>"
         },
         {
-            question: "Birden fazla nesneyi orantılı (bozmadan) büyütmek için hangi tuşa basılı tutulur?",
-            options: ["Shift", "Ctrl", "Alt", "Space"],
-            answer: "Shift"
+            question: "Tabloda yeni bir satır (row) oluşturmak için hangi etiket kullanılır?",
+            options: ["<td>", "<th>", "<tr>", "<row>"],
+            answer: "<tr>"
         },
         {
-            question: "Sayfa içinde gezinmek (ekranı kaydırmak) için kullanılan 'Hand Tool' (El Aracı) kısayolu nedir?",
-            options: ["Boşluk Tuşu (Space)", "Enter", "Alt", "Ctrl"],
-            answer: "Boşluk Tuşu (Space)"
+            question: "Tabloda sütunları birleştirmek için hangi özellik kullanılır?",
+            options: ["rowspan", "colspan", "merge", "combine"],
+            answer: "colspan"
         },
         {
-            question: "Aşağıdakilerden hangisi bir 'Sıcak Renk'tir?",
-            options: ["Turuncu", "Mavi", "Yeşil", "Mor"],
-            answer: "Turuncu"
+            question: "Tabloda satırları birleştirmek için hangi özellik kullanılır?",
+            options: ["rowspan", "colspan", "rowmerge", "span"],
+            answer: "rowspan"
         },
         {
-            question: "Aşağıdakilerden hangisi bir 'Soğuk Renk'tir?",
-            options: ["Mavi", "Kırmızı", "Sarı", "Turuncu"],
-            answer: "Mavi"
+            question: "Form verilerini gizli bir şekilde (URL'de görünmeden) göndermek için hangi metod kullanılır?",
+            options: ["GET", "POST", "SEND", "HIDDEN"],
+            answer: "POST"
         },
         {
-            question: "Grafik tasarımda 'Opacity' (Opaklık) neyi ifade eder?",
-            options: ["Görselin şeffaflık derecesini", "Görselin genişliğini", "Görselin dosya boyutunu", "Görselin adını"],
-            answer: "Görselin şeffaflık derecesini"
+            question: "Kullanıcının sadece tek bir seçim yapabildiği (örneğin Cinsiyet: Kadın/Erkek) form elemanı hangisidir?",
+            options: ["Checkbox (Onay Kutusu)", "Radio Button (Radyo Düğmesi)", "Text Area", "Select Box"],
+            answer: "Radio Button (Radyo Düğmesi)"
         },
         {
-            question: "Photoshop'ta 'Magic Wand' (Sihirli Değnek) aracı ne işe yarar?",
-            options: ["Benzer renkleri tek tıkla seçer", "Fotoğrafı siler", "Yazı yazar", "Dosyayı kapatır"],
-            answer: "Benzer renkleri tek tıkla seçer"
+            question: "Birden fazla seçeneğin aynı anda seçilebildiği (örneğin Hobiler) form elemanı hangisidir?",
+            options: ["Radio Button", "Checkbox", "Password", "Submit"],
+            answer: "Checkbox"
         },
         {
-            question: "Illustrator'da nesneleri gruplamak (Group) için kullanılan kısayol nedir?",
-            options: ["Ctrl + G", "Ctrl + Z", "Ctrl + P", "Ctrl + A"],
-            answer: "Ctrl + G"
+            question: "Açılır liste (Dropdown menu) oluşturmak için kullanılan etiket hangisidir?",
+            options: ["<list>", "<input type='dropdown'>", "<select>", "<optionlist>"],
+            answer: "<select>"
         },
         {
-            question: "Bir tasarımı baskıya göndermeden önce metinleri ne yapmak gerekir?",
-            options: ["Create Outlines (Anahat Oluştur / Eğrilere Dönüştür)", "Delete (Sil)", "Rengini değiştirmek", "Görünmez yapmak"],
-            answer: "Create Outlines (Anahat Oluştur / Eğrilere Dönüştür)"
+            question: "Çok satırlı metin girişi (örneğin mesaj kutusu) için hangi etiket kullanılır?",
+            options: ["<input type='text'>", "<textarea>", "<text>", "<input type='box'>"],
+            answer: "<textarea>"
         },
         {
-            question: "Vektörel çizimlerde şeklin dış çizgisine ne ad verilir?",
-            options: ["Stroke (Kontur)", "Fill (Dolgu)", "Pixel (Piksel)", "Shadow (Gölge)"],
-            answer: "Stroke (Kontur)"
+            question: "Formdaki verileri sunucuya göndermek için kullanılan buton tipi hangisidir?",
+            options: ["type='button'", "type='reset'", "type='submit'", "type='send'"],
+            answer: "type='submit'"
+        },
+
+        // --- BÖLÜM 5: PROJE YÖNETİMİ, HOSTING VE GENEL KAVRAMLAR (Ders Notları 1. ve 6. Hafta) ---
+        {
+            question: "Web sitesi dosyalarının internette yayınlanmak üzere barındırıldığı bilgisayarlara ne denir?",
+            options: ["Domain", "Hosting (Server)", "Browser", "Modem"],
+            answer: "Hosting (Server)"
         },
         {
-            question: "Vektörel çizimlerde şeklin iç rengine ne ad verilir?",
-            options: ["Fill (Dolgu)", "Stroke (Kontur)", "Line (Çizgi)", "Edge (Kenar)"],
-            answer: "Fill (Dolgu)"
+            question: "Web sitesinin internetteki adı veya adresi (örneğin google.com) kavramı nedir?",
+            options: ["Hosting", "Domain (Alan Adı)", "DNS", "IP"],
+            answer: "Domain (Alan Adı)"
         },
         {
-            question: "Photoshop'ta 'Ctrl + C' ne işe yarar?",
-            options: ["Copy (Kopyala)", "Paste (Yapıştır)", "Cut (Kes)", "Undo (Geri Al)"],
-            answer: "Copy (Kopyala)"
+            question: "Dosya Aktarım Protokolü (Web sitesi dosyalarını sunucuya yüklemek için kullanılan protokol) kısaltması nedir?",
+            options: ["HTTP", "FTP", "SMTP", "DNS"],
+            answer: "FTP"
         },
         {
-            question: "Photoshop'ta 'Ctrl + V' ne işe yarar?",
-            options: ["Paste (Yapıştır)", "Copy (Kopyala)", "Delete (Sil)", "Select (Seç)"],
-            answer: "Paste (Yapıştır)"
+            question: "Yazılım kodlamasında 'KISS' prensibi neyi ifade eder?",
+            options: ["Kodun karmaşık olması gerektiğini", "Kodun kısa ve basit tutulması gerektiğini (Keep It Short and Simple)", "Kodun uzun olması gerektiğini", "Kodun sadece geliştiriciler için olduğunu"],
+            answer: "Kodun kısa ve basit tutulması gerektiğini (Keep It Short and Simple)"
         },
         {
-            question: "Hangi dosya formatı hareketli resim (animasyon) destekler?",
-            options: ["GIF", "JPG", "PDF", "TXT"],
-            answer: "GIF"
+            question: "Bir yazılım projesinde kodlama başlamadan önceki ilk aşama genellikle nedir?",
+            options: ["Test", "Bakım", "Analiz ve Planlama", "Sürüm Teslimi"],
+            answer: "Analiz ve Planlama"
         },
         {
-            question: "Tasarımda önemli olan bilgiyi öne çıkarmaya ne denir?",
-            options: ["Hierarchy (Hiyerarşi / Vurgu)", "Chaos (Karışıklık)", "Invisibility (Görünmezlik)", "Deleting (Silme)"],
-            answer: "Hierarchy (Hiyerarşi / Vurgu)"
+            question: "Web sitelerinin görünen yüzünü (tasarım, menüler vb.) kodlayan alana ne ad verilir?",
+            options: ["Backend", "Frontend", "Database", "Network"],
+            answer: "Frontend"
+        },
+        {
+            question: "Veritabanı Yönetim Sistemlerinin (DBMS) temel görevi nedir?",
+            options: ["Web sayfasını renklendirmek", "Verileri depolamak, yönetmek ve sorgulamak", "Resimleri düzenlemek", "İnternet hızını artırmak"],
+            answer: "Verileri depolamak, yönetmek ve sorgulamak"
+        },
+        {
+            question: "Hataların düzeltilmesi, yeni özelliklerin eklenmesi gibi işlemler projenin hangi aşamasında yapılır?",
+            options: ["Analiz", "Bakım Aşaması", "Planlama", "Gereksinim Belirleme"],
+            answer: "Bakım Aşaması"
+        },
+        {
+            question: "Web sitesinin farklı ekran boyutlarına (mobil, tablet, pc) uyumlu olmasına ne denir?",
+            options: ["Responsive Tasarım", "Statik Tasarım", "Grafik Tasarım", "Veritabanı Tasarımı"],
+            answer: "Responsive Tasarım"
+        },
+        {
+            question: "Aşağıdakilerden hangisi popüler bir veritabanı yönetim sistemidir?",
+            options: ["MySQL", "HTML", "CSS", "Photoshop"],
+            answer: "MySQL"
         }
     ];
 
@@ -608,9 +605,9 @@
 
         // Geri bildirim mesajı
         const feedback = document.getElementById("feedback-text");
-        if(score >= 90) feedback.textContent = "🏆 Mükemmel! Temel kavramlara tamamen hakimsin.";
+        if(score >= 90) feedback.textContent = "🏆 Mükemmel! Ders notlarına ve CSS konularına tamamen hakimsin.";
         else if(score >= 70) feedback.textContent = "👏 Gayet başarılı! Ufak tekrarlarla tam puan alabilirsin.";
-        else if(score >= 50) feedback.textContent = "👍 Fena değil. Temel kavramları biraz daha tekrar etmelisin.";
+        else if(score >= 50) feedback.textContent = "👍 Fena değil. Özellikle !important ve transition konularına tekrar bakabilirsin.";
         else feedback.textContent = "📚 Biraz daha çalışman gerekiyor. Notları tekrar gözden geçir.";
     }
 </script>
