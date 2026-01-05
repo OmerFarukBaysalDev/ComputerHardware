@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Final Hazırlık - 70 Soru (Düzeltilmiş)</title>
+    <title>Python Final Hazırlık - 80 Soru (Güncellenmiş)</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <style>
         :root {
@@ -118,16 +118,25 @@
         }
 
         .code-block {
-            background: #2d3436;
-            color: #a29bfe;
+            background: #1e1e1e;
+            color: #d4d4d4;
             padding: 15px;
             border-radius: 6px;
-            font-family: 'Consolas', monospace;
-            margin-top: 10px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            margin: 10px 0;
             font-size: 0.95rem;
             overflow-x: auto;
             border-left: 4px solid #fdcb6e;
+            white-space: pre;
+            line-height: 1.5;
+            tab-size: 4;
         }
+
+        .code-block .keyword { color: #569cd6; }
+        .code-block .string { color: #ce9178; }
+        .code-block .function { color: #dcdcaa; }
+        .code-block .comment { color: #6a9955; }
+        .code-block .number { color: #b5cea8; }
 
         /* Options */
         .options-grid {
@@ -252,7 +261,7 @@
                 <p>Yozgat Bozok Üni. - Öğr. Gör. Anıl KUŞ</p>
             </div>
             <div class="stats">
-                <div class="stat-badge"><i class="fas fa-list-ol"></i> <span id="q-val">1/70</span></div>
+                <div class="stat-badge"><i class="fas fa-list-ol"></i> <span id="q-val">1/80</span></div>
                 <div class="stat-badge stat-correct"><i class="fas fa-check-circle"></i> <span id="score-val">0</span></div>
                 <div class="stat-badge stat-wrong"><i class="fas fa-times-circle"></i> <span id="wrong-val">0</span></div>
             </div>
@@ -359,14 +368,14 @@
         // --- HAFTA 3: VERİ TİPLERİ VE OPERATÖRLER ---
         {
             t: "Veri Tipleri",
-            q: "Aşağıdaki kodun çıktısı ne olur? <div class='code-block'>print(type(3.14))</div>",
+            q: "Aşağıdaki kodun çıktısı ne olur?<br><div class='code-block'>print(type(3.14))</div>",
             o: ["int", "float", "str", "bool"],
             a: "float",
             exp: "Ondalıklı sayılar Python'da 'float' veri tipi olarak geçer."
         },
         {
             t: "Operatörler",
-            q: "Aşağıdaki işlemin sonucu nedir? <div class='code-block'>print(10 % 3)</div>",
+            q: "Aşağıdaki işlemin sonucu nedir?<br><div class='code-block'>print(10 % 3)</div>",
             o: ["1", "3", "3.33", "0"],
             a: "1",
             exp: "% operatörü mod alma (bölümden kalanı bulma) işlemidir. 10'un 3'e bölümünden kalan 1'dir."
@@ -396,7 +405,7 @@
         },
         {
             t: "Input/Output",
-            q: "Aşağıdaki kodun çıktısı nedir? <div class='code-block'>a = '10'\nb = '20'\nprint(a+b)</div>",
+            q: "Aşağıdaki kodun çıktısı nedir?<br><div class='code-block'>a = '10'\nb = '20'\nprint(a + b)</div>",
             o: ["30", "1020", "Hata", "10 20"],
             a: "1020",
             exp: "Değişkenler tırnak içinde olduğu için string'dir. Stringlerde + operatörü birleştirme yapar."
@@ -426,7 +435,7 @@
         },
         {
             t: "Koşullu İfadeler",
-            q: "Aşağıdaki kodda x=10 ise çıktı ne olur? <div class='code-block'>if x > 5:\n    print('A')\nif x > 8:\n    print('B')</div>",
+            q: "Aşağıdaki kodda x=10 ise çıktı ne olur?<br><div class='code-block'>if x > 5:\n    print('A')\nif x > 8:\n    print('B')</div>",
             o: ["Sadece A", "Sadece B", "A ve B", "Hiçbiri"],
             a: "A ve B",
             exp: "Burada 'elif' değil, iki ayrı 'if' kullanılmıştır. İki koşul da (10>5 ve 10>8) doğru olduğu için ikisi de çalışır."
@@ -447,7 +456,7 @@
         },
         {
             t: "Listeler",
-            q: "Aşağıdaki listenin 1. indeksi nedir? <div class='code-block'>liste = ['elma', 'armut', 'muz']</div>",
+            q: "Aşağıdaki listenin 1. indeksi nedir?<br><div class='code-block'>liste = ['elma', 'armut', 'muz']</div>",
             o: ["elma", "armut", "muz", "Hata"],
             a: "armut",
             exp: "Python'da indeksler 0'dan başlar. 0:elma, 1:armut."
@@ -470,7 +479,7 @@
         },
         {
             t: "Kümeler (Set)",
-            q: "Aşağıdaki kümenin eleman sayısı kaçtır? <div class='code-block'>kume = {1, 2, 2, 3, 3, 3}</div>",
+            q: "Aşağıdaki kümenin eleman sayısı kaçtır?<br><div class='code-block'>kume = {1, 2, 2, 3, 3, 3}</div>",
             o: ["6", "3", "1", "Hata"],
             a: "3",
             exp: "Kümeler (Set) benzersiz eleman tutar. Tekrarlar otomatik silinir. Kalanlar: {1, 2, 3}."
@@ -507,7 +516,7 @@
         },
         {
             t: "Kod Analizi",
-            q: "Çıktı nedir? <div class='code-block'>for i in range(2, 5):\n    print(i, end='')</div>",
+            q: "Çıktı nedir?<br><div class='code-block'>for i in range(2, 5):\n    print(i, end='')</div>",
             o: ["2345", "234", "345", "1234"],
             a: "234",
             exp: "2'den başlar, 5'e kadar (5 yok). Yan yana yazdırır: 234."
@@ -530,7 +539,7 @@
         },
         {
             t: "Fonksiyonlar",
-            q: "Aşağıdaki fonksiyon çağrısının sonucu nedir? <div class='code-block'>def topla(a, b=10):\n    return a+b\n\nprint(topla(5))</div>",
+            q: "Aşağıdaki fonksiyon çağrısının sonucu nedir?<br><div class='code-block'>def topla(a, b=10):\n    return a + b\n\nprint(topla(5))</div>",
             o: ["5", "15", "10", "Hata"],
             a: "15",
             exp: "b parametresinin varsayılan değeri 10'dur. a=5 gönderildiği için 5+10=15 olur."
@@ -619,15 +628,15 @@
 
         // --- HAFTA 13: KÜTÜPHANELER II ---
         {
-            t: "Numpy",
-            q: "Numpy kütüphanesinin temel veri yapısı nedir?",
+            t: "NumPy",
+            q: "NumPy kütüphanesinin temel veri yapısı nedir?",
             o: ["List", "Dictionary", "Array (Dizi)", "Tuple"],
             a: "Array (Dizi)",
-            exp: "Numpy, yüksek performanslı 'ndarray' (Numpy Array) yapısını kullanır."
+            exp: "NumPy, yüksek performanslı 'ndarray' (NumPy Array) yapısını kullanır."
         },
         {
-            t: "Numpy",
-            q: "Bir Numpy dizisindeki sayıların ortalamasını alan fonksiyon hangisidir?",
+            t: "NumPy",
+            q: "Bir NumPy dizisindeki sayıların ortalamasını alan fonksiyon hangisidir?",
             o: ["np.average()", "np.mean()", "np.median()", "np.sum()"],
             a: "np.mean()",
             exp: "Ortalama hesaplamak için np.mean() kullanılır."
@@ -664,7 +673,7 @@
         // --- KOD ANALİZİ VE EKSTRALAR ---
         {
             t: "Kod Analizi",
-            q: "Çıktı nedir? <div class='code-block'>s = 'Python'\nprint(s[1:4])</div>",
+            q: "Çıktı nedir?<br><div class='code-block'>s = 'Python'\nprint(s[1:4])</div>",
             o: ["Pyt", "yth", "ytho", "tho"],
             a: "yth",
             exp: "1. indeksten başlar (y), 4'e kadar gider (4 dahil değil, t-h). Sonuç: yth."
@@ -754,83 +763,117 @@
             exp: "Python yorumlanan (interpreted) bir dildir, kodlar satır satır çalıştırılır."
         },
 
-        // --- YENİ EKLENEN: KÜTÜPHANE ODAKLI KOD SORULARI (10 Adet) ---
+        // === YENİ EKLENEN: KÜTÜPHANE ODAKLI 10 SORU ===
+        {
+            t: "NumPy",
+            q: "Aşağıdaki kod hangi kütüphane kullanılarak çalıştırılabilir?<br><div class='code-block'>import numpy as np\narr = np.array([1, 2, 3])\nprint(arr * 2)</div>",
+            o: ["Pandas", "NumPy", "Matplotlib", "Math"],
+            a: "NumPy",
+            exp: "np.array() ve broadcasting (her elemanı 2 ile çarpma) işlemleri NumPy kütüphanesine özgüdür."
+        },
+        {
+            t: "Pandas",
+            q: "Pandas kütüphanesinde DataFrame oluşturmak için hangi fonksiyon kullanılır?",
+            o: ["pd.DataFrame()", "pd.create_df()", "pd.make_table()", "pd.data()"],
+            a: "pd.DataFrame()",
+            exp: "Pandas'ta tablo oluşturmak için pd.DataFrame() fonksiyonu kullanılır."
+        },
+        {
+            t: "Random",
+            q: "Aşağıdaki kod parçası hangi kütüphaneye aittir?<br><div class='code-block'>import random\nsonuc = random.randint(1, 100)</div>",
+            o: ["Math", "Random", "NumPy", "Statistics"],
+            a: "Random",
+            exp: "random.randint() fonksiyonu Python'un standart random kütüphanesine aittir."
+        },
+        {
+            t: "Matplotlib",
+            q: "Matplotlib kütüphanesi hangi amaçla kullanılır?",
+            o: ["Veri analizi", "Veri görselleştirme (grafik çizme)", "Web scraping", "Dosya okuma/yazma"],
+            a: "Veri görselleştirme (grafik çizme)",
+            exp: "Matplotlib Python'da grafik ve görselleştirme oluşturmak için kullanılan temel kütüphanedir."
+        },
+        {
+            t: "DateTime",
+            q: "Aşağıdaki kod hangi kütüphaneye aittir?<br><div class='code-block'>from datetime import datetime\nbugun = datetime.now()</div>",
+            o: ["Time", "DateTime", "Calendar", "Date"],
+            a: "DateTime",
+            exp: "datetime.now() fonksiyonu Python'un datetime modülüne aittir."
+        },
+        {
+            t: "Math",
+            q: "Hangi kütüphaneyi kullanarak bir sayının mutlak değerini alabiliriz?",
+            o: ["Math", "NumPy", "Pandas", "Hepsi"],
+            a: "Hepsi",
+            exp: "Hem math.fabs(), hem numpy.abs(), hem de Python'un built-in abs() fonksiyonu kullanılabilir."
+        },
+        {
+            t: "JSON",
+            q: "JSON formatındaki bir string'i Python sözlüğüne çevirmek için hangi kütüphane kullanılır?",
+            o: ["json", "xml", "csv", "yaml"],
+            a: "json",
+            exp: "Python'un json modülü, JSON verilerini işlemek için kullanılır."
+        },
+        {
+            t: "OS",
+            q: "İşletim sistemi ile etkileşim (dosya işlemleri, dizin değiştirme vb.) için hangi kütüphane kullanılır?",
+            o: ["sys", "os", "platform", "subprocess"],
+            a: "os",
+            exp: "os modülü işletim sistemi işlemleri için kullanılan Python'un standart kütüphanesidir."
+        },
+        {
+            t: "Requests",
+            q: "Requests kütüphanesi ne için kullanılır?",
+            o: ["HTTP istekleri göndermek", "Dosya işlemleri", "Veritabanı bağlantısı", "Grafik çizme"],
+            a: "HTTP istekleri göndermek",
+            exp: "Requests kütüphanesi HTTP istekleri (GET, POST vb.) göndermek için kullanılır."
+        },
+        {
+            t: "Tkinter",
+            q: "Python'da grafiksel kullanıcı arayüzü (GUI) oluşturmak için hangi kütüphane kullanılır?",
+            o: ["PyGame", "Tkinter", "Kivy", "PyQt"],
+            a: "Tkinter",
+            exp: "Tkinter, Python ile GUI oluşturmak için kullanılan standart kütüphanedir."
+        },
         {
             t: "NumPy Kod Analizi",
-            q: "Aşağıdaki kodun çıktısı nedir? <div class='code-block'>import numpy as np\narr = np.array([1, 2, 3])\nprint(arr * 2)</div>",
-            o: ["[1, 2, 3, 1, 2, 3]", "[2, 4, 6]", "Hata verir", "[1, 2, 3, 2]"],
-            a: "[2, 4, 6]",
-            exp: "NumPy dizileri matematiksel işlemleri her elemana uygular (Broadcasting). [1*2, 2*2, 3*2] = [2, 4, 6]."
+            q: "Aşağıdaki kodun çıktısı nedir?<br><div class='code-block'>import numpy as np\narr = np.array([1, 2, 3, 4, 5])\nprint(arr[arr > 2])</div>",
+            o: ["[1 2]", "[3 4 5]", "[True False False True True]", "Hata verir"],
+            a: "[3 4 5]",
+            exp: "NumPy'da koşullu indeksleme yapılabilir. arr > 2, [False, False, True, True, True] döndürür. Bu True olanlar seçilir: 3, 4, 5."
         },
         {
             t: "Pandas Kod Analizi",
-            q: "Aşağıdaki kodda 'Ankara' verisine nasıl ulaşılır? <div class='code-block'>import pandas as pd\ns = pd.Series([10, 20], index=['İst', 'Ank'])\n# Ankara değerini (20) al</div>",
-            o: ["s[1]", "s['Ank']", "s.iloc[1]", "Hepsi"],
-            a: "Hepsi",
-            exp: "Pandas serilerinde hem etiket (label) ile `s['Ank']` hem de pozisyon (index) ile `s[1]` veya `iloc[1]` erişim mümkündür."
-        },
-        {
-            t: "Random Kod Analizi",
-            q: "Aşağıdaki kodun olası çıktısı hangisi OLAMAZ? <div class='code-block'>import random\nprint(random.choice(['A', 'B', 'C']))</div>",
-            o: ["A", "B", "C", "D"],
-            a: "D",
-            exp: "random.choice() sadece listede var olan elemanlardan birini seçer. 'D' listede yoktur."
-        },
-        {
-            t: "Matplotlib Kod Analizi",
-            q: "Bir pasta grafiği çizdirmek için hangi fonksiyon kullanılır?",
-            o: ["plt.plot()", "plt.bar()", "plt.pie()", "plt.hist()"],
-            a: "plt.pie()",
-            exp: "Pasta grafiği (Pie Chart) çizdirmek için `plt.pie()` fonksiyonu kullanılır."
-        },
-        {
-            t: "NumPy Kod Analizi",
-            q: "Aşağıdaki kodun çıktısı nedir? <div class='code-block'>import numpy as np\na = np.zeros(3)\nprint(a)</div>",
-            o: ["[0, 0, 0]", "[0. 0. 0.]", "[1, 1, 1]", "[]"],
-            a: "[0. 0. 0.]",
-            exp: "np.zeros(3) varsayılan olarak float tipinde sıfırlardan oluşan bir dizi oluşturur (0.)."
+            q: "Aşağıdaki kod hangi işlemi yapar?<br><div class='code-block'>import pandas as pd\ndf = pd.read_csv('veriler.csv')\nprint(df.describe())</div>",
+            o: ["İlk 5 satırı gösterir", "Veri setinin istatistiklerini gösterir", "Sütun isimlerini listeler", "Veri setini sıralar"],
+            a: "Veri setinin istatistiklerini gösterir",
+            exp: "describe() metodu sayısal sütunlar için count, mean, std, min, max gibi istatistiksel özet bilgileri verir."
         },
         {
             t: "Math Kod Analizi",
-            q: "Aşağıdaki kodun çıktısı nedir? <div class='code-block'>import math\nprint(math.ceil(4.2))</div>",
-            o: ["4", "5", "4.2", "4.0"],
-            a: "5",
-            exp: "math.ceil() fonksiyonu sayıyı bir üst tam sayıya yuvarlar (Tavan). 4.2 -> 5."
+            q: "Aşağıdaki kodun çıktısı nedir?<br><div class='code-block'>import math\nprint(math.floor(4.9) + math.ceil(2.1))</div>",
+            o: ["6", "7", "8", "6.0"],
+            a: "7",
+            exp: "math.floor(4.9) = 4 (aşağı yuvarlar), math.ceil(2.1) = 3 (yukarı yuvarlar). 4 + 3 = 7"
         },
         {
-            t: "Pandas Kod Analizi",
-            q: "Bir DataFrame'in ilk 5 satırını görüntülemek için hangi metod kullanılır?",
-            o: ["df.tail()", "df.info()", "df.head()", "df.view()"],
-            a: "df.head()",
-            exp: "df.head() varsayılan olarak ilk 5 satırı getirir. df.tail() son 5 satırı getirir."
+            t: "Random Kod Analizi",
+            q: "Aşağıdaki kod hangi değeri ÜRETEMEZ?<br><div class='code-block'>import random\nprint(random.randrange(10, 20, 2))</div>",
+            o: ["10", "12", "18", "19"],
+            a: "19",
+            exp: "randrange(10, 20, 2) 10'dan 20'ye kadar (20 dahil değil) 2'şer artan sayılar üretir: 10, 12, 14, 16, 18"
         },
         {
-            t: "Datetime Kod Analizi",
-            q: "Şu anki tarih ve saati almak için hangi kod kullanılır?",
-            o: ["datetime.today()", "datetime.now()", "time.now()", "date.now()"],
-            a: "datetime.now()",
-            exp: "datetime modülünde `datetime.now()` fonksiyonu o anki tarih ve saati verir."
-        },
-        {
-            t: "OS Modülü Kod Analizi",
-            q: "Bulunduğumuz dizindeki dosyaları listelemek için hangi fonksiyon kullanılır?",
-            o: ["os.mkdir()", "os.getcwd()", "os.listdir()", "os.remove()"],
-            a: "os.listdir()",
-            exp: "os.listdir() belirtilen dizindeki (veya mevcut dizindeki) dosya ve klasörleri liste olarak döndürür."
-        },
-        {
-            t: "JSON Modülü Kod Analizi",
-            q: "Python sözlüğünü (dict) JSON formatında string'e çevirmek için hangisi kullanılır?",
-            o: ["json.load()", "json.dump()", "json.loads()", "json.dumps()"],
-            a: "json.dumps()",
-            exp: "json.dumps() (dump string), Python nesnesini JSON string'ine dönüştürür."
+            t: "OS Kod Analizi",
+            q: "Aşağıdaki kod ne işe yarar?<br><div class='code-block'>import os\nprint(os.path.exists('rapor.pdf'))</div>",
+            o: ["Dosya oluşturur", "Dosya siler", "Dosyanın var olup olmadığını kontrol eder", "Dosya adını değiştirir"],
+            a: "Dosyanın var olup olmadığını kontrol eder",
+            exp: "os.path.exists() fonksiyonu belirtilen dosya veya dizinin var olup olmadığını kontrol eder."
         }
     ];
 
     let currentQIndex = 0;
     let score = 0;
     let wrong = 0;
-    // Cevapları saklamak için dizi (null: cevaplanmadı, string: seçilen şık)
     let answers = new Array(questions.length).fill(null);
 
     // Elementleri Seç
@@ -852,7 +895,7 @@
 
     function loadQuestion() {
         const q = questions[currentQIndex];
-        const savedAnswer = answers[currentQIndex]; // Bu soru daha önce cevaplandı mı?
+        const savedAnswer = answers[currentQIndex];
         
         // UI Güncelle
         els.topic.innerText = q.t;
@@ -862,10 +905,9 @@
         
         // Buton durumları
         els.prevBtn.disabled = (currentQIndex === 0);
-        // Eğer cevaplanmışsa ileri butonu aktif, yoksa pasif
         els.nextBtn.disabled = (savedAnswer === null);
         
-        // Açıklama alanı: cevaplandıysa göster, yoksa gizle
+        // Açıklama alanı
         if (savedAnswer) {
             els.expText.innerText = q.exp;
             els.explanation.style.display = 'block';
@@ -880,13 +922,11 @@
             const btn = document.createElement('div');
             btn.className = 'option-btn';
             btn.innerHTML = `<div class="btn-letter">${String.fromCharCode(65 + index)}</div> ${opt}`;
-            
-            // Gizli olarak şıkkın gerçek değerini butona ekliyoruz
             btn.dataset.option = opt;
 
             // Eğer soru daha önce cevaplandıysa durumunu yansıt
             if (savedAnswer) {
-                btn.style.pointerEvents = 'none'; // Tıklamayı engelle
+                btn.style.pointerEvents = 'none';
                 if (opt === q.a) {
                     btn.classList.add('correct');
                 }
@@ -918,10 +958,9 @@
             btn.classList.add('selected-wrong');
             wrong++;
             els.wrongVal.innerText = wrong;
-            // Doğru cevabı göster
+            // Doğru cevabı gösters
             allBtns.forEach(b => {
-                // Sadece text includes değil, tam eşleşme kontrolü yapıyoruz
-                if(b.dataset.option === correct) b.classList.add('correct');
+                if(b.dataset.option =sv== correct) b.classList.add('correct');
             });
         }
 
@@ -961,7 +1000,6 @@
 
     // Başlat
     loadQuestion();
-
 </script>
 </body>
 </html>
