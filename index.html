@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yazılım Mimarileri - Final (71 Soru)</title>
+    <title>Yazılım Mimarileri - Final (72 Soru)</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <style>
         :root {
@@ -234,7 +235,7 @@
                 <h1>Yazılım Mimarileri Final</h1>
             </div>
             <div class="stats">
-                <div class="stat-badge"><i class="fas fa-list-ol"></i> <span id="q-val">1/71</span></div>
+                <div class="stat-badge"><i class="fas fa-list-ol"></i> <span id="q-val"></span></div>
                 <div class="stat-badge stat-correct"><i class="fas fa-check-circle"></i> <span id="score-val">0</span></div>
                 <div class="stat-badge stat-wrong"><i class="fas fa-times-circle"></i> <span id="wrong-val">0</span></div>
             </div>
@@ -824,125 +825,131 @@
 ];
 
     let currentQIndex = 0;
-    let score = 0;
-    let wrong = 0;
-    let answers = new Array(questions.length).fill(null);
+let score = 0;
+let wrong = 0;
 
-    const els = {
-        quizScreen: document.getElementById('quiz-screen'),
-        resultScreen: document.getElementById('result-screen'),
-        topic: document.getElementById('topic'),
-        question: document.getElementById('question'),
-        options: document.getElementById('options'),
-        nextBtn: document.getElementById('next-btn'),
-        prevBtn: document.getElementById('prev-btn'),
-        qVal: document.getElementById('q-val'),
-        scoreVal: document.getElementById('score-val'),
-        wrongVal: document.getElementById('wrong-val'),
-        explanation: document.getElementById('explanation'),
-        expText: document.getElementById('explanation-text'),
-        progress: document.getElementById('progress')
-    };
+const totalQuestions = questions.length;
+const answers = new Array(totalQuestions).fill(null);
 
-    function loadQuestion() {
-        const q = questions[currentQIndex];
-        const savedAnswer = answers[currentQIndex];
-        
-        els.topic.innerText = q.t;
-        els.question.innerHTML = q.q;
-        els.qVal.innerText = `${currentQIndex + 1}/${questions.length}`;
-        els.progress.style.width = `${((currentQIndex) / questions.length) * 100}%`;
-        
-        els.prevBtn.disabled = (currentQIndex === 0);
-        els.nextBtn.disabled = (savedAnswer === null);
-        
+const els = {
+    quizScreen: document.getElementById('quiz-screen'),
+    resultScreen: document.getElementById('result-screen'),
+    topic: document.getElementById('topic'),
+    question: document.getElementById('question'),
+    options: document.getElementById('options'),
+    nextBtn: document.getElementById('next-btn'),
+    prevBtn: document.getElementById('prev-btn'),
+    qVal: document.getElementById('q-val'),
+    scoreVal: document.getElementById('score-val'),
+    wrongVal: document.getElementById('wrong-val'),
+    explanation: document.getElementById('explanation'),
+    expText: document.getElementById('explanation-text'),
+    progress: document.getElementById('progress')
+};
+
+function updateCounterAndProgress() {
+    els.qVal.innerText = `${currentQIndex + 1}/${totalQuestions}`;
+    els.progress.style.width =
+        `${((currentQIndex + 1) / totalQuestions) * 100}%`;
+}
+
+function loadQuestion() {
+    const q = questions[currentQIndex];
+    const savedAnswer = answers[currentQIndex];
+
+    els.topic.innerText = q.t;
+    els.question.innerHTML = q.q;
+
+    updateCounterAndProgress();
+
+    els.prevBtn.disabled = (currentQIndex === 0);
+    els.nextBtn.disabled = (savedAnswer === null);
+
+    els.explanation.style.display = savedAnswer ? 'block' : 'none';
+    if (savedAnswer) els.expText.innerHTML = q.exp;
+
+    els.options.innerHTML = '';
+
+    q.o.forEach((opt, index) => {
+        const btn = document.createElement('div');
+        btn.className = 'option-btn';
+        btn.innerHTML = `
+            <div class="btn-letter">${String.fromCharCode(65 + index)}</div>
+            ${opt}
+        `;
+        btn.dataset.option = opt;
+
         if (savedAnswer) {
-            els.expText.innerHTML = q.exp;
-            els.explanation.style.display = 'block';
-        } else {
-            els.explanation.style.display = 'none';
-        }
-        
-        els.options.innerHTML = '';
-        
-        q.o.forEach((opt, index) => {
-            const btn = document.createElement('div');
-            btn.className = 'option-btn';
-            btn.innerHTML = `<div class="btn-letter">${String.fromCharCode(65 + index)}</div> ${opt}`;
-            btn.dataset.option = opt;
+            btn.style.pointerEvents = 'none';
 
-            if (savedAnswer) {
-                btn.style.pointerEvents = 'none';
-                if (opt === q.a) {
-                    btn.classList.add('correct');
-                }
-                if (opt === savedAnswer && savedAnswer !== q.a) {
-                    btn.classList.add('selected-wrong');
-                }
-            } else {
-                btn.onclick = () => checkAnswer(btn, opt, q.a, q.exp);
+            if (opt === q.a) btn.classList.add('correct');
+            if (opt === savedAnswer && savedAnswer !== q.a)
+                btn.classList.add('selected-wrong');
+        } else {
+            btn.onclick = () => checkAnswer(btn, opt, q.a, q.exp);
+        }
+
+        els.options.appendChild(btn);
+    });
+}
+
+function checkAnswer(btn, selected, correct, explanation) {
+    answers[currentQIndex] = selected;
+
+    document.querySelectorAll('.option-btn')
+        .forEach(b => b.style.pointerEvents = 'none');
+
+    if (selected === correct) {
+        btn.classList.add('correct');
+        score++;
+        els.scoreVal.innerText = score;
+    } else {
+        btn.classList.add('selected-wrong');
+        wrong++;
+        els.wrongVal.innerText = wrong;
+
+        document.querySelectorAll('.option-btn').forEach(b => {
+            if (b.dataset.option === correct) {
+                b.classList.add('correct');
             }
-            
-            els.options.appendChild(btn);
         });
     }
 
-    function checkAnswer(btn, selected, correct, explanation) {
-        answers[currentQIndex] = selected;
+    els.expText.innerHTML = explanation;
+    els.explanation.style.display = 'block';
+    els.nextBtn.disabled = false;
+}
 
-        const allBtns = document.querySelectorAll('.option-btn');
-        allBtns.forEach(b => b.style.pointerEvents = 'none');
-
-        if (selected === correct) {
-            btn.classList.add('correct');
-            score++;
-            els.scoreVal.innerText = score;
-        } else {
-            btn.classList.add('selected-wrong');
-            wrong++;
-            els.wrongVal.innerText = wrong;
-            
-            allBtns.forEach(b => {
-                if(b.dataset.option === correct) {
-                    b.classList.add('correct');
-                }
-            });
-        }
-
-        els.expText.innerHTML = explanation;
-        els.explanation.style.display = 'block';
-        els.nextBtn.disabled = false;
+function nextQuestion() {
+    if (currentQIndex < totalQuestions - 1) {
+        currentQIndex++;
+        loadQuestion();
+    } else {
+        showResult();
     }
+}
 
-    function nextQuestion() {
-        if (currentQIndex < questions.length - 1) {
-            currentQIndex++;
-            loadQuestion();
-        } else {
-            showResult();
-        }
+function prevQuestion() {
+    if (currentQIndex > 0) {
+        currentQIndex--;
+        loadQuestion();
     }
+}
 
-    function prevQuestion() {
-        if (currentQIndex > 0) {
-            currentQIndex--;
-            loadQuestion();
-        }
-    }
+function showResult() {
+    els.quizScreen.style.display = 'none';
+    els.resultScreen.style.display = 'block';
 
-    function showResult() {
-        els.quizScreen.style.display = 'none';
-        els.resultScreen.style.display = 'block';
-        
-        document.getElementById('final-correct').innerText = score;
-        document.getElementById('final-wrong').innerText = wrong;
-        
-        const percent = Math.round((score / questions.length) * 100);
-        document.getElementById('final-score').innerText = `%${percent}`;
-        document.getElementById('final-circle').style.background = `conic-gradient(#27ae60 ${percent}%, #eee 0%)`;
-    }
+    document.getElementById('final-correct').innerText = score;
+    document.getElementById('final-wrong').innerText = wrong;
 
-    loadQuestion();
+    const percent = Math.round((score / totalQuestions) * 100);
+    document.getElementById('final-score').innerText = `%${percent}`;
+    document.getElementById('final-circle').style.background =
+        `conic-gradient(#27ae60 ${percent}%, #eee 0%)`;
+}
+
+loadQuestion();
 </script>
 </body>
 </html>
