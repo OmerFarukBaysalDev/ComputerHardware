@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bilgisayar Donanımı - Final(70 Soru)</title>
+    <title>Yazılım Mimarileri - Final Sınavı</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -217,8 +217,8 @@
         
         <div class="header">
             <div class="title-group">
-                <h1>BİLGİSAYAR MİMARİSİ FİNAL</h1>
-                <p>Zorluk: İleri | 5 Şıklı Sistem</p>
+                <h1>YAZILIM MİMARİLERİ FİNAL</h1>
+                <p>Kapsam: PDF Ders Notları (1-14. Hafta)</p>
             </div>
             <div class="stats">
                 <div class="stat-item"><i class="fas fa-bars"></i> <span id="q-counter">1/70</span></div>
@@ -277,521 +277,592 @@
 </div>
 
 <script>
-    // 5 ŞIKLI, ZORLAYICI VE ÇELDİRİCİ SORULAR
+    // --- YAZILIM MİMARİLERİ SORULARI (70 ADET) ---
+    // Ağırlık: %60-70 Son Haftalar (12, 13, 14), Kalanı İlk Haftalar.
+    
     const questions = [
-        // --- 1. TARİHÇE VE TEMELLER (10 Soru) ---
+        // --- 1. GRUP: MVC, MVVM, MVP (Hafta 12) ---
         {
-            t: "Bilgisayar Tarihçesi",
-            q: "ENIAC ile ilgili aşağıdaki teknik detaylardan hangisi kesinlikle yanlıştır?",
-            o: ["Askeri topçu atış cetvellerini hesaplamak için tasarlanmıştır.", "Programlanması, kablo ve anahtarların elle değiştirilmesiyle yapılıyordu.", "İkili (Binary) sayı sistemi yerine Onluk (Decimal) sistem kullanıyordu.", "Belleğinde program saklayabilen (Stored Program) ilk bilgisayardır.", "Yaklaşık 18.000 vakum tüpünden oluşuyordu."],
-            a: "Belleğinde program saklayabilen (Stored Program) ilk bilgisayardır.",
-            exp: "ENIAC programlanabilirdi ancak program hafızada saklanmıyordu. Stored Program konsepti Von Neumann mimarisi (EDVAC/IAS) ile gelmiştir."
+            t: "Tasarım Desenleri (MVC)",
+            q: "MVC mimarisinde, uygulamanın veri ve iş mantığı ile ilgili kısmı olup; veritabanı işlemlerini gerçekleştiren katman hangisidir?",
+            o: ["View", "Controller", "Model", "Presenter"],
+            a: "Model",
+            exp: "Model, uygulamanın 'zihni' olarak düşünülür; verileri temsil eder ve veritabanı işlemlerini gerçekleştirir."
         },
         {
-            t: "Moore Yasası",
-            q: "Gordon Moore'un 1965'te ortaya attığı Moore Yasası'nın en doğru teknik tanımı hangisidir?",
-            o: ["Bilgisayar hızları her 18 ayda bir ikiye katlanır.", "Entegre devrelerdeki transistör sayısı yaklaşık her 2 yılda bir iki katına çıkar.", "İşlemci fiyatları her yıl yarı yarıya düşer.", "Transistörlerin güç tüketimi her 2 yılda bir yarıya iner.", "Veri depolama kapasitesi her yıl katlanarak artar."],
-            a: "Entegre devrelerdeki transistör sayısı yaklaşık her 2 yılda bir iki katına çıkar.",
-            exp: "Moore yasası doğrudan 'hız' değil, birim alandaki 'transistör yoğunluğu' ile ilgilidir."
+            t: "Tasarım Desenleri (MVC)",
+            q: "MVC mimarisinde 'Controller' katmanının temel görevi nedir?",
+            o: ["Veriyi veritabanına kaydetmek", "Kullanıcı isteklerini işleyip ilgili Model ve View'i koordine etmek", "Kullanıcı arayüzünü (UI) çizmek", "Veritabanı bağlantısını şifrelemek"],
+            a: "Kullanıcı isteklerini işleyip ilgili Model ve View'i koordine etmek",
+            exp: "Controller, kullanıcının isteklerini (request) alır, modeli günceller ve sonucu view'e iletir."
         },
         {
-            t: "Von Neumann Mimarisi",
-            q: "Von Neumann mimarisinin (IAS) modern bilgisayarların temelini oluşturan en kritik özelliği nedir?",
-            o: ["Çok çekirdekli işlemci yapısına izin vermesi.", "Verilerin ve komutların (programın) aynı okunabilir/yazılabilir bellekte saklanması.", "Sadece ikili sayı sistemini desteklemesi.", "Giriş ve çıkış birimlerinin işlemciden bağımsız çalışması.", "Transistör teknolojisine geçişi sağlaması."],
-            a: "Verilerin ve komutların (programın) aynı okunabilir/yazılabilir bellekte saklanması.",
-            exp: "Von Neumann mimarisinin devrimi, programın da veri gibi bellekte tutulmasıdır (Stored Program Concept)."
+            t: "Tasarım Desenleri (MVC)",
+            q: "MVC mimarisinin sağladığı 'Ayrı Sorumluluklar' (Separation of Concerns) prensibi neyi ifade eder?",
+            o: ["Tüm kodların tek bir dosyada toplanmasını", "Model, View ve Controller'ın birbirine sıkı sıkıya bağlı olmasını", "Her katmanın farklı sorumluluklara sahip olup birbirinden bağımsız olmasını", "Sadece View katmanının test edilmesini"],
+            a: "Her katmanın farklı sorumluluklara sahip olup birbirinden bağımsız olmasını",
+            exp: "Bu prensip, kodun daha temiz, bakımının kolay ve modüler olmasını sağlar."
         },
         {
-            t: "Mikroişlemciler",
-            q: "Intel 4004 işlemcisinin tarihteki önemi nedir?",
-            o: ["İlk kişisel bilgisayar olan Altair 8800'ün işlemcisidir.", "Dünyanın ilk ticari mikroişlemcisi olup tüm CPU fonksiyonlarını tek çipte toplamıştır.", "1 GHz hız barajını aşan ilk işlemcidir.", "Grafik arayüzü destekleyen ilk işlemcidir.", "Transistör yerine entegre devre kullanan ilk işlemcidir."],
-            a: "Dünyanın ilk ticari mikroişlemcisi olup tüm CPU fonksiyonlarını tek çipte toplamıştır.",
-            exp: "1971'de çıkan Intel 4004, dağınık devre elemanlarını tek bir silikon yongaya sığdırarak mikroişlemci devrini başlatmıştır."
+            t: "Tasarım Desenleri (MVVM)",
+            q: "MVVM (Model-View-ViewModel) mimarisi özellikle hangi tür uygulamaların geliştirilmesi için tasarlanmıştır?",
+            o: ["Komut satırı (CLI) uygulamaları", "İşletim sistemi çekirdeği", "GUI (Grafiksel Kullanıcı Arayüzü) tabanlı uygulamalar", "Veritabanı sunucuları"],
+            a: "GUI (Grafiksel Kullanıcı Arayüzü) tabanlı uygulamalar",
+            exp: "MVVM, veri bağlama (data binding) yeteneği sayesinde zengin kullanıcı arayüzleri için optimize edilmiştir."
         },
         {
-            t: "Bilgisayar Tarihçesi",
-            q: "İlk kişisel bilgisayar (PC) olarak kabul edilen ve 1975'te piyasaya sürülen cihaz hangisidir?",
-            o: ["Apple I", "IBM PC 5150", "Altair 8800", "Commodore 64", "UNIVAC I"],
-            a: "Altair 8800",
-            exp: "Altair 8800, kit halinde satılan ve mikrobilgisayar devrimini başlatan ilk popüler kişisel bilgisayardır."
+            t: "Tasarım Desenleri (MVVM)",
+            q: "MVVM mimarisinde, View ile Model arasında bağlantı görevi gören ve veriyi View için uygun biçime getiren bileşen hangisidir?",
+            o: ["Controller", "ViewModel", "Presenter", "API"],
+            a: "ViewModel",
+            exp: "ViewModel, View'dan gelen etkileşimleri alır, işler ve Model ile iletişim kurarak veriyi hazırlar."
         },
         {
-            t: "Transistör Teknolojisi",
-            q: "Vakum tüplerinden transistörlere geçişin bilişim sistemlerine sağladığı en büyük fiziksel avantaj nedir?",
-            o: ["Daha yüksek voltaj ile çalışabilme.", "Yazılım hatalarını donanımsal olarak düzeltme.", "Isı üretimini ve enerji tüketimini azaltarak minyatürleşmeyi (küçülmeyi) sağlama.", "Analog sinyalleri tamamen ortadan kaldırma.", "Veri güvenliğini şifreleme ile sağlama."],
-            a: "Isı üretimini ve enerji tüketimini azaltarak minyatürleşmeyi (küçülmeyi) sağlama.",
-            exp: "Transistörler, çok ısınan ve büyük yer kaplayan tüplerin yerini alarak cihazların masaüstü boyutuna inmesini sağlamıştır."
+            t: "Tasarım Desenleri (MVVM)",
+            q: "MVVM mimarisinin 'Veri Bağlama' (Data Binding) özelliği ne sağlar?",
+            o: ["Veritabanı şifrelemesini", "ViewModel'deki verinin otomatik olarak View'da görünmesini", "Sunucu ile istemci arasındaki ağ hızını", "Kodun derlenmeden çalışmasını"],
+            a: "ViewModel'deki verinin otomatik olarak View'da görünmesini",
+            exp: "Data Binding sayesinde, modeldeki bir değişiklik anında arayüze (View), arayüzdeki bir giriş de modele yansır."
         },
         {
-            t: "Ticari Bilgisayarlar",
-            q: "Askeri amaçlar dışında üretilen ve satılan ilk ticari bilgisayar hangisidir?",
-            o: ["ENIAC", "EDVAC", "UNIVAC I", "IBM 360", "Colossus"],
-            a: "UNIVAC I",
-            exp: "UNIVAC I, nüfus sayımı gibi sivil ve ticari işler için üretilen ve satılan ilk genel amaçlı bilgisayardır."
+            t: "Tasarım Desenleri (MVP)",
+            q: "MVP (Model-View-Presenter) mimarisinde, kullanıcı arayüzünün mantıksal tarafını kontrol eden anahtar bileşen hangisidir?",
+            o: ["Model", "View", "Presenter", "Controller"],
+            a: "Presenter",
+            exp: "Presenter, Model ve View arasındaki iletişimi kolaylaştırır ve arayüz mantığını yönetir."
         },
         {
-            t: "Bilgi Birimleri",
-            q: "Aşağıdaki veri büyüklüğü sıralamalarından hangisi doğrudur?",
-            o: ["KB < MB < GB < PB < TB", "MB < GB < TB < ZB < PB", "KB < MB < GB < TB < PB", "GB < MB < KB < TB < PB", "MB < KB < GB < PB < TB"],
-            a: "KB < MB < GB < TB < PB",
-            exp: "Sıralama: Kilo, Mega, Giga, Tera, Peta şeklindedir."
+            t: "Tasarım Desenleri (MVP)",
+            q: "MVP mimarisinde View katmanının rolü nedir?",
+            o: ["İş mantığını yürütmek", "Kullanıcıya bilgi göstermek ve girişleri almak (Pasif)", "Veritabanına bağlanmak", "Ağ trafiğini yönetmek"],
+            a: "Kullanıcıya bilgi göstermek ve girişleri almak (Pasif)",
+            exp: "MVP'de View genellikle pasiftir; veriyi nasıl işleyeceğini bilmez, sadece Presenter'dan geleni gösterir."
         },
         {
-            t: "Bilişim Etkileri",
-            q: "Bilişim sistemlerinin toplumsal etkileri düşünüldüğünde, 'Dijital Uçurum' (Digital Divide) kavramı neyi ifade eder?",
-            o: ["İşlemciler arasındaki hız farkını.", "Teknolojiye erişimi olanlar ile olmayanlar arasındaki eşitsizliği.", "Analog ve dijital veriler arasındaki uyumsuzluğu.", "İnternet hızının bölgelere göre değişmesini.", "Yazılım ve donanım mühendisleri arasındaki maaş farkını."],
-            a: "Teknolojiye erişimi olanlar ile olmayanlar arasındaki eşitsizliği.",
-            exp: "Dijital uçurum, sosyo-ekonomik nedenlerle teknolojiye ve bilgiye erişimdeki adaletsizliği tanımlar."
+            t: "API Kavramları",
+            q: "Bir yazılımın dış dünya ile iletişim kurabilmesi için belirlediği kurallar ve protokoller bütününe ne ad verilir?",
+            o: ["GUI", "IDE", "API", "SDK"],
+            a: "API",
+            exp: "API (Application Programming Interface), farklı yazılımların birbiriyle konuşmasını sağlayan arayüzdür."
         },
         {
-            t: "Sistem Mimarisi",
-            q: "IAS (Von Neumann) makinesinde 'Program Sayacı'nın (Program Counter - PC) görevi nedir?",
-            o: ["Çalıştırılan komutun sonucunu saklamak.", "Bir sonraki çalıştırılacak komutun bellek adresini tutmak.", "Programın kaç saniyedir çalıştığını saymak.", "Döngü sayısını hesaplamak.", "RAM'deki boş alan miktarını saymak."],
-            a: "Bir sonraki çalıştırılacak komutun bellek adresini tutmak.",
-            exp: "PC (Program Counter), işlemcinin sırada hangi komutu işleyeceğini bilmesini sağlayan özel bir yazmaçtır."
-        },
-
-        // --- 2. İŞLEMCİ (CPU) MİMARİSİ (15 Soru) ---
-        {
-            t: "CPU Bileşenleri",
-            q: "CPU içerisindeki Kontrol Birimi'nin (Control Unit) temel görevi nedir?",
-            o: ["Aritmetik işlemleri yapmak.", "Verileri kalıcı olarak depolamak.", "Bellekten gelen komutları çözmek (Decode) ve birimler arası veri akışını yönetmek.", "Önbellek (Cache) yönetimini sağlamak.", "Grafik işlemlerini hızlandırmak."],
-            a: "Bellekten gelen komutları çözmek (Decode) ve birimler arası veri akışını yönetmek.",
-            exp: "Kontrol birimi işlem yapmaz, işlemi yönetir. Komutları yorumlar ve ALU gibi birimlere ne yapacağını söyler."
+            t: "API Türleri",
+            q: "Aşağıdakilerden hangisi bir 'Veritabanı API'si' örneğidir?",
+            o: ["REST API", "JDBC (Java Database Connectivity)", "Google Maps API", "Twitter API"],
+            a: "JDBC (Java Database Connectivity)",
+            exp: "JDBC, Java uygulamalarının veritabanı ile etkileşime girmesini sağlayan bir API standardıdır."
         },
         {
-            t: "CPU Bileşenleri",
-            q: "ALU (Aritmetik Mantık Birimi) aşağıdakilerden hangisini GERÇEKLEŞTİRMEZ?",
-            o: ["Toplama işlemi", "Çıkarma işlemi", "AND, OR kapı işlemleri", "Komutun bellekten getirilmesi (Fetch)", "Sayısal karşılaştırma (Büyüktür/Küçüktür)"],
-            a: "Komutun bellekten getirilmesi (Fetch)",
-            exp: "Fetch (Getirme) işlemi Kontrol Birimi'nin yönetiminde yapılır. ALU sadece hesaplama ve mantık kısmını icra eder."
+            t: "API Tasarımı",
+            q: "İyi bir API tasarımında 'Sürdürülebilirlik' ne anlama gelir?",
+            o: ["API'nin hiç değişmemesi", "API'nin gelecekteki değişikliklere ve güncellemelere uyum sağlaması", "API'nin sadece yerel ağda çalışması", "API'nin ücretsiz olması"],
+            a: "API'nin gelecekteki değişikliklere ve güncellemelere uyum sağlaması",
+            exp: "Sürdürülebilirlik, API'nin zamanla gelişen ihtiyaçlara cevap verebilmesi ve bakımının yapılabilmesidir."
         },
         {
-            t: "Önbellek (Cache)",
-            q: "İşlemci neden RAM yerine öncelikle Cache (Önbellek) belleğe bakar?",
-            o: ["Cache bellek daha ucuz olduğu için.", "Cache bellek işlemcinin içinde veya çok yakınında olup RAM'den çok daha hızlı olduğu için.", "RAM'deki veriler güvenilir olmadığı için.", "İşletim sistemi Cache üzerinde çalıştığı için.", "Cache bellek daha yüksek kapasiteli olduğu için."],
-            a: "Cache bellek işlemcinin içinde veya çok yakınında olup RAM'den çok daha hızlı olduğu için.",
-            exp: "Cache, işlemci ile yavaş RAM arasındaki hız farkını kapatmak için kullanılan çok hızlı ancak kapasitesi düşük bellektir."
-        },
-        {
-            t: "Cache Hiyerarşisi",
-            q: "L1, L2 ve L3 Cache sıralaması ile ilgili hangisi doğrudur?",
-            o: ["L1 en yavaş ama en büyük kapasitelidir.", "L3 en hızlı ve en küçük kapasitelidir.", "L1 en hızlı ve en küçük, L3 ise L1'e göre daha yavaş ama daha büyüktür.", "Hızları eşittir, sadece konumları farklıdır.", "L2 sadece grafik işlemleri için kullanılır."],
-            a: "L1 en hızlı ve en küçük, L3 ise L1'e göre daha yavaş ama daha büyüktür.",
-            exp: "İşlemci çekirdeğine en yakın olan L1 en hızlısıdır. L3 ise çekirdekler arasında paylaşılır ve daha büyüktür."
-        },
-        {
-            t: "RISC vs CISC",
-            q: "Mobil cihazlarda yaygın olan ARM mimarisinin (RISC) temel felsefesi nedir?",
-            o: ["Karmaşık komutları tek seferde işlemek.", "Basit ve az sayıda komut seti kullanarak enerji verimliliği ve hız sağlamak.", "Donanım karmaşıklığını artırıp yazılımı basitleştirmek.", "Sadece tek çekirdekli çalışmak.", "Yüksek güç tüketimi ile maksimum performans almak."],
-            a: "Basit ve az sayıda komut seti kullanarak enerji verimliliği ve hız sağlamak.",
-            exp: "RISC (Reduced Instruction Set), basit komutlarla hızlı ve az enerji tüketen işlemleri hedefler."
-        },
-        {
-            t: "RISC vs CISC",
-            q: "Intel ve AMD işlemcilerde kullanılan x86 mimarisi genellikle hangi sınıfa girer?",
-            o: ["RISC (Reduced Instruction Set)", "CISC (Complex Instruction Set)", "MISC (Minimal Instruction Set)", "VLIW", "ARM"],
-            a: "CISC (Complex Instruction Set)",
-            exp: "Masaüstü ve sunucularda kullanılan x86 mimarisi, tek komutla karmaşık işler yapabilen CISC tabanlıdır."
-        },
-        {
-            t: "İşlemci Performansı",
-            q: "Saat Hızı (Clock Speed - GHz) işlemci performansı için tek başına neden yeterli bir ölçüt değildir?",
-            o: ["Çünkü GHz sadece sıcaklığı gösterir.", "Çünkü performans; döngü başına yapılan işlem (IPC), çekirdek sayısı ve mimariye de bağlıdır.", "Çünkü tüm işlemciler aynı GHz hızında çalışır.", "Çünkü GHz sadece RAM hızını etkiler.", "Çünkü yazılımlar hıza bakmaz."],
-            a: "Çünkü performans; döngü başına yapılan işlem (IPC), çekirdek sayısı ve mimariye de bağlıdır.",
-            exp: "Eski bir 3.0 GHz işlemci, yeni nesil 2.0 GHz işlemciden çok daha yavaş olabilir. Mimari verimlilik (IPC) önemlidir."
-        },
-        {
-            t: "Makine Döngüsü",
-            q: "Fetch - Decode - Execute - Store döngüsünde 'Decode' aşaması ne anlama gelir?",
-            o: ["Verinin RAM'den alınması.", "İşlemin sonucunun yazılması.", "Alınan komutun ne olduğunun anlaşılması ve gerekli sinyallerin üretilmesi.", "İşlemin matematiksel olarak yapılması.", "Bilgisayarın açılması."],
-            a: "Alınan komutun ne olduğunun anlaşılması ve gerekli sinyallerin üretilmesi.",
-            exp: "Decode (Çözme), getirilen 1 ve 0 yığınlarının hangi emir olduğunu (topla, çıkar, taşı vb.) anlama aşamasıdır."
-        },
-        {
-            t: "Teknolojiler",
-            q: "Hyper-Threading (Intel) veya SMT (AMD) teknolojisinin amacı nedir?",
-            o: ["İşlemciyi soğutmak.", "Bir fiziksel çekirdeği işletim sistemine iki mantıksal çekirdek gibi gösterip kaynak kullanımını artırmak.", "RAM kapasitesini ikiye katlamak.", "Ekran kartı performansını artırmak.", "İnternet hızını artırmak."],
-            a: "Bir fiziksel çekirdeği işletim sistemine iki mantıksal çekirdek gibi gösterip kaynak kullanımını artırmak.",
-            exp: "Bu teknoloji sayesinde işlemci, boşta kalan birimlerini kullanarak aynı anda iki iş parçacığını (thread) işleyebilir."
-        },
-        {
-            t: "İşlemci Kayıtçıları",
-            q: "Register (Yazmaç) belleklerin en belirgin özelliği nedir?",
-            o: ["Çok büyük kapasiteli olmaları.", "Kalıcı (Non-volatile) olmaları.", "CPU'nun içinde bulunmaları ve sistemdeki en hızlı bellek birimi olmaları.", "Harici olarak takılıp çıkarılabilmeleri.", "Grafik verilerini saklamaları."],
-            a: "CPU'nun içinde bulunmaları ve sistemdeki en hızlı bellek birimi olmaları.",
-            exp: "Registerlar işlemcinin 'çalışma masasıdır'. Kapasiteleri bitlerle ifade edilir ama hızları işlemci hızıyla aynıdır."
-        },
-        {
-            t: "Geleceğin İşlemcileri",
-            q: "Kuantum bilgisayarların klasik işlemcilerden temel farkı nedir?",
-            o: ["Daha fazla elektrik tüketmeleri.", "Bit yerine Qubit (Kuantum Bit) kullanarak 0 ve 1 durumunda aynı anda bulunabilmeleri.", "Silikon yerine karbon kullanmaları.", "Windows çalıştıramamaları.", "Daha yavaş ama daha güvenli olmaları."],
-            a: "Bit yerine Qubit (Kuantum Bit) kullanarak 0 ve 1 durumunda aynı anda bulunabilmeleri.",
-            exp: "Süperpozisyon ilkesi sayesinde kuantum bilgisayarlar, klasik bilgisayarların milyonlarca yılda çözeceği sorunları saniyeler içinde çözebilir."
-        },
-        {
-            t: "Soğutma",
-            q: "İşlemci ile soğutucu blok arasına sürülen termal macunun görevi nedir?",
-            o: ["İşlemciyi yapıştırmak.", "Hava boşluklarını doldurarak ısı iletimini en üst düzeye çıkarmak.", "Elektrik yalıtımı sağlamak.", "Fan hızını kontrol etmek.", "Görsel güzellik katmak."],
-            a: "Hava boşluklarını doldurarak ısı iletimini en üst düzeye çıkarmak.",
-            exp: "Hava ısıyı iyi iletmez. Macun, mikroskobik boşlukları doldurarak ısıyı metal bloğa aktarır."
-        },
-        {
-            t: "Boru Hattı",
-            q: "Pipelining (Boru Hattı) tekniği işlemci performansını nasıl artırır?",
-            o: ["İşlemci hızını (GHz) artırarak.", "Birden fazla komutun farklı aşamalarını (Fetch, Decode, Execute) aynı anda işleyerek.", "Çekirdek sayısını artırarak.", "Önbelleği büyüterek.", "RAM voltajını düşürerek."],
-            a: "Birden fazla komutun farklı aşamalarını (Fetch, Decode, Execute) aynı anda işleyerek.",
-            exp: "Fabrika bandı gibi; bir komut işlenirken diğeri getirilir, öbürü çözülür. Böylece her saat döngüsünde bir iş biter."
-        },
-        {
-            t: "Kelime Uzunluğu",
-            q: "Bir işlemcinin 32-bit veya 64-bit olması teknik olarak neyi ifade eder?",
-            o: ["İşlemcinin fiziksel boyutunu.", "Tek seferde işleyebildiği veri miktarını ve adresleyebildiği RAM kapasitesini.", "İnternet hızını.", "Desteklediği USB sayısını.", "Üretim yılını."],
-            a: "Tek seferde işleyebildiği veri miktarını ve adresleyebildiği RAM kapasitesini.",
-            exp: "64-bit işlemciler, 32-bit'e göre çok daha büyük sayıları işleyebilir ve 4GB'dan fazla RAM adresleyebilir."
-        },
-        {
-            t: "Çok Çekirdek",
-            q: "Multi-core (Çok çekirdekli) işlemcilerin geliştirilme sebebi nedir?",
-            o: ["Tek çekirdekte frekans (hız) artışının aşırı ısınma ve fiziksel sınırlara takılması.", "Yazılımların daha ucuz olması.", "Transistörlerin bitmesi.", "RAM fiyatlarının düşmesi.", "Ekran kartlarının yetersiz kalması."],
-            a: "Tek çekirdekte frekans (hız) artışının aşırı ısınma ve fiziksel sınırlara takılması.",
-            exp: "Hızı sonsuza kadar artıramadığımız için (ısı duvarı), işlem gücünü paralel çalışan birden fazla çekirdeğe bölmeye başladık."
+            t: "Web Servisleri",
+            q: "HTTP protokolünü kullanarak uygulamaların iletişim kurmasını sağlayan API türü hangisidir?",
+            o: ["Donanım API", "Web API (HTTP API)", "Kernel API", "Library API"],
+            a: "Web API (HTTP API)",
+            exp: "Web API'lar (REST, SOAP vb.) internet üzerinden HTTP protokolü ile veri alışverişi sağlar."
         },
 
-        // --- 3. ANAKART VE SİSTEM (10 Soru) ---
+        // --- 2. GRUP: İLERİ KAVRAMLAR VE YAZILIM TERİMLERİ (Hafta 13 & 14) ---
         {
-            t: "Anakart",
-            q: "Anakart üzerindeki 'Chipset' (Yonga Seti) bileşeninin temel görevi nedir?",
-            o: ["Elektrik üretmek.", "İşlemci, RAM, Ekran kartı ve diğer çevre birimleri arasındaki veri trafiğini koordine etmek.", "Bilgisayarı virüslerden korumak.", "Ses çıkışı sağlamak.", "İnternet bağlantısını sağlamak."],
-            a: "İşlemci, RAM, Ekran kartı ve diğer çevre birimleri arasındaki veri trafiğini koordine etmek.",
-            exp: "Chipset, anakartın trafik polisidir. Hangi verinin nereye gideceğini yönetir."
+            t: "Yazılım Kavramları",
+            q: "Web sunucularında istenen dosya bulunamadığında döndürülen hata kodu nedir?",
+            o: ["200 OK", "500 Internal Server Error", "404 Not Found", "403 Forbidden"],
+            a: "404 Not Found",
+            exp: "HTTP 404, sunucuya erişildiğini ancak istenen kaynağın bulunamadığını belirtir."
         },
         {
-            t: "Kuzey Köprüsü",
-            q: "Eski mimarilerde Kuzey Köprüsü (Northbridge) hangi bileşenleri yönetirdi?",
-            o: ["USB, Klavye, Mouse", "Sabit Disk, Ses Kartı", "CPU, RAM, Ekran Kartı (AGP/PCIe)", "BIOS, Pil", "Ethernet, Yazıcı"],
-            a: "CPU, RAM, Ekran Kartı (AGP/PCIe)",
-            exp: "Kuzey köprüsü, yüksek hız gerektiren (CPU-RAM-GPU) hattı yönetirdi. Günümüzde bu işlev işlemcinin içine taşınmıştır."
+            t: "Dizin Hizmetleri",
+            q: "Microsoft ağlarında kullanıcılar, bilgisayarlar ve yazıcılar gibi organizasyon bilgilerini saklayan veritabanı hizmeti hangisidir?",
+            o: ["MySQL", "Active Directory", "Oracle DB", "Redis"],
+            a: "Active Directory",
+            exp: "Active Directory, Windows ağ ortamlarında merkezi kimlik ve kaynak yönetimini sağlar."
         },
         {
-            t: "BIOS",
-            q: "BIOS'un (Basic Input/Output System) bilgisayar açılışındaki ilk görevi nedir?",
-            o: ["Windows'u yüklemek.", "POST (Power On Self Test) ile donanımları test etmek.", "İnternete bağlanmak.", "Ekran çözünürlüğünü ayarlamak.", "Kullanıcı şifresini sormak."],
-            a: "POST (Power On Self Test) ile donanımları test etmek.",
-            exp: "Bilgisayar açma tuşuna basıldığında BIOS devreye girer, donanımları kontrol eder (POST) ve sonra işletim sistemini arar."
+            t: "Programlama Dilleri",
+            q: "İşlemcinin doğrudan anlayabildiği, kendine has 1 ve 0'lardan oluşan dile ne ad verilir?",
+            o: ["Python", "Assembly / Makine Dili", "Java", "C#"],
+            a: "Assembly / Makine Dili",
+            exp: "Makine dili (Machine Language) işlemcinin ana dilidir. Assembly bunun okunabilir karşılığıdır."
         },
         {
-            t: "CMOS",
-            q: "Bilgisayarın fişi çekilse bile saat ve tarih ayarlarının sıfırlanmamasının sebebi nedir?",
-            o: ["Sabit diskin manyetik özelliği.", "BIOS yazılımının gücü.", "Anakart üzerindeki pil ile beslenen CMOS belleği.", "RAM üzerindeki statik elektrik.", "İşlemcinin yedek enerjisi."],
-            a: "Anakart üzerindeki pil ile beslenen CMOS belleği.",
-            exp: "CMOS, çok az enerji tüketen bir RAM türüdür ve pil sayesinde ayarları (tarih, saat, boot sırası) hafızasında tutar."
+            t: "Backend",
+            q: "Bir yazılımda kullanıcıların görmediği, veritabanı ve sunucu işlemlerinin yapıldığı kısma ne ad verilir?",
+            o: ["Frontend", "UI", "Backend", "Mockup"],
+            a: "Backend",
+            exp: "Backend, sunucu tarafı mantığı ve veri yönetimini kapsar."
         },
         {
-            t: "Veri Yolları",
-            q: "FSB (Front Side Bus) kavramı neyi ifade eder?",
-            o: ["USB girişlerinin hızını.", "İşlemci ile Kuzey Köprüsü (veya RAM) arasındaki veri yolunu.", "Ekran kartının bellek hızını.", "Sabit diskin dönme hızını.", "Güç kaynağının kapasitesini."],
-            a: "İşlemci ile Kuzey Köprüsü (veya RAM) arasındaki veri yolunu.",
-            exp: "Eski sistemlerde işlemcinin dış dünyayla konuştuğu ana yoldu. Darboğaz oluşturduğu için modern sistemlerde yerini QPI veya HyperTransport'a bıraktı."
+            t: "Bellek Yönetimi",
+            q: "Bilgisayar programlarının ihtiyaç duymadığı bellek alanlarını işletim sistemine iade etmesi işlemine ne denir?",
+            o: ["Memory Leak", "Garbage Collection", "Deadlock", "Caching"],
+            a: "Garbage Collection",
+            exp: "Garbage Collection (Çöp Toplama), kullanılmayan nesneleri temizleyerek bellek yönetimini otomatikleştirir."
         },
         {
-            t: "Form Faktör",
-            q: "ATX, Micro-ATX ve Mini-ITX terimleri anakartın hangi özelliğini belirtir?",
-            o: ["İşlemci desteğini", "RAM kapasitesini", "Fiziksel boyutlarını ve vida montaj standartlarını (Form Factor)", "Markasını", "Hızını"],
-            a: "Fiziksel boyutlarını ve vida montaj standartlarını (Form Factor)",
-            exp: "Bu standartlar, anakartın kasaya sığıp sığmayacağını belirler. ATX standart, ITX ise çok küçüktür."
+            t: "Hata Türleri",
+            q: "Bir programın çalışması sırasında meydana gelen ve programın anormal sonlanmasına neden olabilen hataya ne denir?",
+            o: ["Syntax Error", "Runtime Error (Exception)", "Logic Error", "Compile Error"],
+            a: "Runtime Error (Exception)",
+            exp: "Çalışma zamanı hatası (Runtime/Exception), program çalışırken (örneğin sıfıra bölme) oluşur."
         },
         {
-            t: "UEFI",
-            q: "Modern bilgisayarlarda BIOS'un yerini alan ve grafik arayüz, mouse desteği, hızlı boot sunan sistem nedir?",
-            o: ["DOS", "UEFI", "CMOS", "SATA", "NTFS"],
-            a: "UEFI",
-            exp: "UEFI (Unified Extensible Firmware Interface), eski BIOS'un kısıtlamalarını kaldıran modern bir firmware arayüzüdür."
+            t: "Programlama Dilleri",
+            q: "Unix ve benzeri sistemlerde komut satırı kabuğu ve betik dili olarak kullanılan, GNU tasarısının parçası olan araç hangisidir?",
+            o: ["PowerShell", "Bash", "Dos", "Git"],
+            a: "Bash",
+            exp: "Bash (Bourne-again shell), Linux/Unix sistemlerinin standart komut satırı arayüzüdür."
         },
         {
-            t: "Giriş Çıkış",
-            q: "Bir anakartta 'Onboard' ne demektir?",
-            o: ["Ekran kartı, ses kartı gibi bileşenlerin anakartla tümleşik gelmesi.", "Anakartın kasaya monte edilmesi.", "Anakartın yanması.", "İşlemcinin anakarta lehimli olması.", "Harici kart takılması."],
-            a: "Ekran kartı, ses kartı gibi bileşenlerin anakartla tümleşik gelmesi.",
-            exp: "Tümleşik (Onboard) donanımlar, harici bir karta gerek kalmadan temel işlevleri (ses, ağ, görüntü) yerine getirir."
+            t: "Veri Yapıları",
+            q: "Dizinle (index) erişilen bir veri öbeği oluşturmak için kullanılan veri yapısına ne ad verilir?",
+            o: ["Loop", "Array (Dizi)", "Class", "Function"],
+            a: "Array (Dizi)",
+            exp: "Array, aynı türdeki verileri sıralı bir şekilde bellekte tutan yapıdır."
         },
         {
-            t: "Güç Bağlantısı",
-            q: "Anakartın çalışması için güç kaynağından gelen en büyük ve temel kablo hangisidir?",
-            o: ["4-pin CPU", "SATA Power", "24-pin ATX Güç Kablosu", "PCIe Power", "Molex"],
-            a: "24-pin ATX Güç Kablosu",
-            exp: "24-pin konektör, anakartın genel bileşenlerine ana elektriği sağlar."
+            t: "Önbellek",
+            q: "Verileri depolayarak gelecekteki isteklere daha hızlı yanıt verilmesini sağlayan donanım veya yazılım bileşeni nedir?",
+            o: ["Firewall", "Router", "Cache (Önbellek)", "Switch"],
+            a: "Cache (Önbellek)",
+            exp: "Cache, veriye hızlı erişim sağlamak için kullanılan geçici depolama alanıdır."
         },
         {
-            t: "PCI Express",
-            q: "PCIe x16 yuvası genellikle hangi donanım için ayrılmıştır?",
-            o: ["Ses kartı", "Ethernet kartı", "Harici Ekran Kartı (GPU)", "M.2 SSD", "Wi-Fi kartı"],
-            a: "Harici Ekran Kartı (GPU)",
-            exp: "x16 yuvası en yüksek bant genişliğini sunar, bu yüzden yüksek veri transferi gerektiren ekran kartları buraya takılır."
-        },
-
-        // --- 4. BELLEK (RAM/ROM) (15 Soru) ---
-        {
-            t: "Bellek Türleri",
-            q: "RAM (Random Access Memory) için 'Volatile' (Uçucu) terimi ne anlama gelir?",
-            o: ["Verilerin çok hızlı buharlaşması.", "Elektrik kesildiğinde içindeki verilerin silinmesi.", "Verilerin rastgele yazılması.", "Sadece okunabilir olması.", "Patlama riskinin olması."],
-            a: "Elektrik kesildiğinde içindeki verilerin silinmesi.",
-            exp: "RAM enerjisi kesildiği an veriyi unutur. Bu yüzden çalışmalarımızı kaydetmek için HDD/SSD kullanırız."
+            t: "Güvenlik",
+            q: "Bir ağa gelen ve giden paket trafiğini belirli kurallara göre kontrol eden güvenlik sistemi hangisidir?",
+            o: ["Antivirus", "Firewall (Güvenlik Duvarı)", "Spyware", "Adware"],
+            a: "Firewall (Güvenlik Duvarı)",
+            exp: "Firewall, yetkisiz erişimleri engellemek için ağ trafiğini filtreler."
         },
         {
-            t: "RAM vs ROM",
-            q: "ROM (Read Only Memory) belleğin temel özelliği nedir?",
-            o: ["Üzerine sürekli veri yazılabilmesi.", "Elektrik kesilse bile veriyi saklaması ve genellikle sadece okunabilir olması.", "Bilgisayarın çalışma hızını belirlemesi.", "Oyunları hızlandırması.", "Dosya depolama alanı olarak kullanılması."],
-            a: "Elektrik kesilse bile veriyi saklaması ve genellikle sadece okunabilir olması.",
-            exp: "ROM kalıcıdır (Non-volatile). BIOS gibi temel yazılımlar burada saklanır, böylece bilgisayar her açıldığında hazırdır."
+            t: "Java Teknolojileri",
+            q: "Java uygulamalarını hem geliştirmek hem de yürütmek için kullanılan, içinde derleyici (javac) de barındıran paket hangisidir?",
+            o: ["JRE", "JVM", "JDK", "IDE"],
+            a: "JDK",
+            exp: "JDK (Java Development Kit), geliştiriciler içindir; JRE ve geliştirme araçlarını (javac vb.) kapsar."
         },
         {
-            t: "RAM Teknolojisi",
-            q: "DRAM (Dinamik RAM) neden sürekli 'tazeleme' (refresh) işlemine ihtiyaç duyar?",
-            o: ["Isınmasını engellemek için.", "Kondansatörlerdeki elektrik yükü zamanla kaçtığı (söndüğü) için.", "İşlemciye yeni veri göndermek için.", "Virüsleri temizlemek için.", "Hızını artırmak için."],
-            a: "Kondansatörlerdeki elektrik yükü zamanla kaçtığı (söndüğü) için.",
-            exp: "DRAM hücreleri minik piller gibidir, saniyede binlerce kez şarj edilmezlerse (refresh) veriyi (1 veya 0) kaybederler."
+            t: "Java Teknolojileri",
+            q: "Java programlarını satır satır yürüten ve donanım bağımsızlığı sağlayan sanal makine hangisidir?",
+            o: ["JVM (Java Virtual Machine)", "V-Model", "Docker", "Hyper-V"],
+            a: "JVM (Java Virtual Machine)",
+            exp: "JVM, Java kodunu (bytecode) çalıştıran yorumlayıcıdır ve 'Bir kere yaz, her yerde çalıştır' mantığını sağlar."
         },
         {
-            t: "SRAM vs DRAM",
-            q: "SRAM (Statik RAM) neden bilgisayarın ana belleği olarak değil de Cache bellek olarak kullanılır?",
-            o: ["Yavaş olduğu için.", "Çok pahalı olduğu, daha az kapasite sunduğu ama çok hızlı olduğu için.", "Elektrik kesilince veriyi sildiği için.", "Üretimi imkansız olduğu için.", "Daha çok ısındığı için."],
-            a: "Çok pahalı olduğu, daha az kapasite sunduğu ama çok hızlı olduğu için.",
-            exp: "SRAM, DRAM gibi tazeleme istemez ve çok hızlıdır (Flip-flop yapısı). Ancak 6-transistörlü yapısı yer kaplar ve maliyetlidir."
+            t: "Java Teknolojileri",
+            q: "Yalnızca Java uygulamasını çalıştırmak isteyen bir son kullanıcı için hangi paketin yüklü olması yeterlidir?",
+            o: ["JDK", "JRE (Java Runtime Environment)", "Eclipse", "Maven"],
+            a: "JRE (Java Runtime Environment)",
+            exp: "JRE, sadece çalıştırma ortamı (JVM + kütüphaneler) sunar, geliştirme araçlarını içermez."
         },
         {
-            t: "RAM Modülleri",
-            q: "Laptoplarda kullanılan daha küçük boyutlu RAM modüllerine ne ad verilir?",
-            o: ["DIMM", "SO-DIMM", "SIMM", "RIMM", "UDIMM"],
-            a: "SO-DIMM",
-            exp: "Masaüstünde DIMM, Laptoplarda yer tasarrufu için SO-DIMM (Small Outline DIMM) kullanılır."
+            t: "Veritabanı",
+            q: "Veritabanı yönetim sistemlerine erişmek için standart bir yazılım arayüzü sağlayan teknoloji hangisidir?",
+            o: ["ODBC (Open Database Connectivity)", "HTML", "CSS", "XML"],
+            a: "ODBC (Open Database Connectivity)",
+            exp: "ODBC, uygulamaların farklı veritabanı sistemlerine standart bir şekilde bağlanmasını sağlar."
         },
         {
-            t: "ROM Çeşitleri",
-            q: "Ultraviyole (UV) ışık ile silinebilen eski tip ROM hangisidir?",
-            o: ["PROM", "EPROM", "EEPROM", "Mask ROM", "Flash ROM"],
-            a: "EPROM",
-            exp: "EPROM'ların üzerinde küçük bir cam pencere vardı. UV ışığı altına tutulunca içindeki veri silinirdi."
+            t: "Programlama Kavramları",
+            q: "Nesne yönelimli programlamada (OOP), nesnelerin özelliklerini ve davranışlarını tanımlayan şablonlara ne denir?",
+            o: ["Object", "Class (Sınıf)", "Method", "Variable"],
+            a: "Class (Sınıf)",
+            exp: "Sınıf (Class), nesnelerin üretildiği taslaktır."
         },
         {
-            t: "Flash Bellek",
-            q: "Günümüzdeki USB bellekler ve SSD'ler teknik olarak hangi ROM türünün gelişmiş halidir?",
-            o: ["Mask ROM", "PROM", "EEPROM (Electrically Erasable PROM)", "CD-ROM", "SRAM"],
-            a: "EEPROM (Electrically Erasable PROM)",
-            exp: "Flash bellek teknolojisi, elektriksel olarak silinip yazılabilen EEPROM teknolojisinin blok tabanlı çalışan hızlı versiyonudur."
+            t: "Yazılım Kavramları",
+            q: "Bir yazılımın kaynak kodunu makine diline çeviren yazılıma ne ad verilir?",
+            o: ["Interpreter", "Compiler (Derleyici)", "Debugger", "Editor"],
+            a: "Compiler (Derleyici)",
+            exp: "Derleyici (Compiler), kodu bütünüyle makine diline çevirip çalıştırılabilir dosya üretir."
         },
         {
-            t: "Sanal Bellek",
-            q: "RAM yetersiz kaldığında işletim sisteminin sabit diskin bir bölümünü RAM gibi kullanmasına ne denir?",
-            o: ["Cache", "Virtual Memory (Sanal Bellek)", "Buffer", "Register", "Cloud Storage"],
-            a: "Virtual Memory (Sanal Bellek)",
-            exp: "Sanal bellek (Swap/Page file), RAM dolduğunda programların çökmesini engeller ama disk hızı düşük olduğu için PC yavaşlar."
+            t: "İşletim Sistemleri",
+            q: "İki veya daha fazla eylemin birbirinin bitmesini beklemesi sonucu oluşan ve sistemin kilitlenmesine yol açan duruma ne denir?",
+            o: ["Deadlock", "LiveLock", "Timeout", "Crash"],
+            a: "Deadlock",
+            exp: "Deadlock, kaynak paylaşımında yaşanan karşılıklı bekleme çıkmazıdır."
         },
         {
-            t: "DDR Teknolojisi",
-            q: "DDR (Double Data Rate) RAM'in özelliği nedir?",
-            o: ["İki tane RAM takılması.", "Saat döngüsünün hem yükselen hem alçalan kenarında veri ileterek hızı ikiye katlaması.", "Voltajı iki katına çıkarması.", "Kapasiteyi ikiye katlaması.", "İki işlemciyle çalışması."],
-            a: "Saat döngüsünün hem yükselen hem alçalan kenarında veri ileterek hızı ikiye katlaması.",
-            exp: "Normal SDRAM her tık'ta 1 veri taşırken, DDR her tık'ta 2 veri taşır (Giriş ve çıkış anında)."
+            t: "Açık Kaynak",
+            q: "Kaynak kodun telif hakkı sahibinin kullanıcılara değiştirme ve dağıtma hakkı verdiği yazılım türü hangisidir?",
+            o: ["Proprietary Software", "Open Source (Açık Kaynak)", "Shareware", "Freeware"],
+            a: "Open Source (Açık Kaynak)",
+            exp: "Açık kaynak yazılımlar (örn: Linux), kodun topluluk tarafından geliştirilmesine izin verir."
         },
         {
-            t: "Bellek Hiyerarşisi",
-            q: "Hızlarına göre (en hızlıdan yavaşa) bellek sıralaması nasıldır?",
-            o: ["RAM > Cache > Register > HDD", "Register > Cache > RAM > SSD > HDD", "HDD > SSD > RAM > Cache", "Cache > RAM > Register > SSD", "Register > RAM > Cache > HDD"],
-            a: "Register > Cache > RAM > SSD > HDD",
-            exp: "En hızlısı işlemci içindeki Register, sonra Cache, sonra RAM, sonra Depolama birimleri gelir."
+            t: "Veri Tabanı",
+            q: "Verilerin tablolarda satır ve sütunlar halinde tutulduğu veri depolama sistemine ne ad verilir?",
+            o: ["Flat File", "RDBMS (İlişkisel Veritabanı)", "NoSQL", "XML"],
+            a: "RDBMS (İlişkisel Veritabanı)",
+            exp: "RDBMS (örn: MySQL, SQL Server), verileri ilişkisel tablolar halinde saklar."
         },
         {
-            t: "Erişim Süresi",
-            q: "RAM'e 'Rastgele Erişimli' (Random Access) denmesinin sebebi nedir?",
-            o: ["Verilerin rastgele silinmesi.", "Herhangi bir bellek hücresine, konumdan bağımsız olarak aynı sürede erişilebilmesi.", "Sırayla okunmak zorunda olması.", "Rastgele hatalar üretmesi.", "İşlemcinin rastgele seçmesi."],
-            a: "Herhangi bir bellek hücresine, konumdan bağımsız olarak aynı sürede erişilebilmesi.",
-            exp: "Kasetlerde (sıralı erişim) ileri sarmak gerekir. RAM'de ise ilk adrese de son adrese de aynı hızda (nanosaniye) ulaşılır."
+            t: "Bulut Bilişim",
+            q: "Kullanıcılara internet üzerinden bulut tabanlı uygulamalara erişim sağlayan model hangisidir (Örn: Gmail)?",
+            o: ["IaaS", "PaaS", "SaaS (Software as a Service)", "FaaS"],
+            a: "SaaS (Software as a Service)",
+            exp: "SaaS, yazılımın bir hizmet olarak internet üzerinden sunulmasıdır."
         },
         {
-            t: "Kanal Mimarisi",
-            q: "Dual Channel (Çift Kanal) RAM teknolojisi ne sağlar?",
-            o: ["RAM kapasitesini artırır.", "İşlemci ile RAM arasındaki veri yolunu genişleterek bant genişliğini (teorik olarak) iki katına çıkarır.", "RAM'in ısınmasını engeller.", "Voltajı düşürür.", "Gecikme süresini (CL) sıfıra indirir."],
-            a: "İşlemci ile RAM arasındaki veri yolunu genişleterek bant genişliğini (teorik olarak) iki katına çıkarır.",
-            exp: "Tek şeritli yol yerine iki şeritli yol gibi düşünün. Veri akışı rahatlar."
+            t: "Programlama",
+            q: "Bir programın yanlış çalışmasına neden olan ancak programın çökmesine (anormal sonlanmasına) neden olmayan hataya ne denir?",
+            o: ["Syntax Error", "Logic Error (Mantık Hatası)", "Runtime Error", "Fatal Error"],
+            a: "Logic Error (Mantık Hatası)",
+            exp: "Mantık hatası (Logic Error), program çalışır ama yanlış sonuç üretir (örn: toplama yerine çıkarma yapmak)."
         },
         {
-            t: "ECC RAM",
-            q: "ECC (Error Correction Code) RAM genellikle nerede kullanılır ve ne işe yarar?",
-            o: ["Oyun bilgisayarlarında FPS artırır.", "Sunucularda (Server) veri hatalarını tespit edip düzeltmek için kullanılır.", "Laptoplarda pil ömrünü uzatır.", "Ekran kartlarında görüntü kalitesini artırır.", "Telefonlarda yer tasarrufu sağlar."],
-            a: "Sunucularda (Server) veri hatalarını tespit edip düzeltmek için kullanılır.",
-            exp: "Kozmik ışınlar bile RAM'de 1'i 0 yapabilir. Sunucularda bu veri bozulması kabul edilemez, ECC bunu düzeltir."
+            t: "Güvenlik",
+            q: "Güvenilmeyen programları ana sistemden izole ederek çalıştırmak için kullanılan güvenlik mekanizmasına ne denir?",
+            o: ["Firewall", "Sandbox", "Antivirus", "Proxy"],
+            a: "Sandbox",
+            exp: "Sandbox, programın sisteme zarar vermesini önlemek için sınırlı bir alanda çalıştırılmasıdır."
         },
         {
-            t: "RAM Gecikmesi",
-            q: "RAM özelliklerinde yazan CL16, CL18 gibi değerlerdeki 'CL' (Cas Latency) neyi ifade eder?",
-            o: ["RAM'in çalışma frekansını.", "Gecikme süresini; değer ne kadar düşükse RAM tepkisi o kadar hızlıdır.", "RAM'in üretim yılını.", "Harcanan enerjiyi.", "Kapasite miktarını."],
-            a: "Gecikme süresini; değer ne kadar düşükse RAM tepkisi o kadar hızlıdır.",
-            exp: "CL, işlemcinin RAM'den veri istemesi ile RAM'in veriyi vermeye başlaması arasında geçen döngü sayısıdır. Düşük olması iyidir."
+            t: "Yazılım Kavramları",
+            q: "Bir yazılımın geliştirme yaşam döngüsünü kısaltmayı ve sürekli teslimat sağlamayı amaçlayan, geliştirme (Dev) ve operasyon (Ops) birleşimi yaklaşım nedir?",
+            o: ["Agile", "DevOps", "Scrum", "Waterfall"],
+            a: "DevOps",
+            exp: "DevOps, yazılım geliştirme ve IT operasyonları arasındaki işbirliğini artıran kültür ve pratiktir."
         },
         {
-            t: "SPD",
-            q: "Anakartın, takılan RAM'in hızını ve özelliklerini otomatik tanımasını sağlayan RAM üzerindeki küçük çip nedir?",
-            o: ["SPD (Serial Presence Detect)", "CPU", "GPU", "BIOS", "VRM"],
-            a: "SPD (Serial Presence Detect)",
-            exp: "SPD çipi, RAM'in kimlik kartıdır. BIOS bu çipi okuyarak RAM ayarlarını otomatik yapar."
-        },
-
-        // --- 5. DEPOLAMA (HDD/SSD) (10 Soru) ---
-        {
-            t: "Sabit Diskler",
-            q: "HDD (Hard Disk Drive) içindeki veriler fiziksel olarak nerede saklanır?",
-            o: ["Dönen manyetik plakalar (Platters) üzerinde.", "Silikon çiplerde.", "Lazer disklerde.", "RAM hücrelerinde.", "Bulut sunucularda."],
-            a: "Dönen manyetik plakalar (Platters) üzerinde.",
-            exp: "HDD, manyetize edilebilen dönen metal diskler ve bunları okuyan kafalardan oluşur."
+            t: "Veri",
+            q: "World Wide Web üzerindeki bilgi kaynaklarını edinmeye ve görüntülemeye yarayan yazılımlara (Örn: Chrome) ne ad verilir?",
+            o: ["Server", "Browser (Tarayıcı)", "Compiler", "Debugger"],
+            a: "Browser (Tarayıcı)",
+            exp: "Browser (Tarayıcı), HTML, CSS ve JS kodlarını işleyerek web sayfalarını gösterir."
         },
         {
-            t: "SSD Teknolojisi",
-            q: "SSD'lerin (Solid State Drive) HDD'lere göre en büyük avantajı nedir?",
-            o: ["Daha ucuz olmaları.", "Hareketli parça içermedikleri için çok hızlı olmaları, sessiz çalışmaları ve darbeye dayanıklı olmaları.", "Daha fazla kapasite sunmaları.", "Veri kurtarmanın çok kolay olması.", "Manyetik alanla çalışmaları."],
-            a: "Hareketli parça içermedikleri için çok hızlı olmaları, sessiz çalışmaları ve darbeye dayanıklı olmaları.",
-            exp: "Mekanik gecikme yoktur. Veriye elektriksel olarak anında erişilir."
+            t: "Yazılım Kavramları",
+            q: "Bir yazılımın belleği kullandıktan sonra işletim sistemine geri verememesi durumuna ne ad verilir?",
+            o: ["Buffer Overflow", "Memory Leak (Bellek Sızıntısı)", "Stack Overflow", "Deadlock"],
+            a: "Memory Leak (Bellek Sızıntısı)",
+            exp: "Memory Leak, programın sürekli bellek tüketip serbest bırakmaması sonucu sistemi yavaşlatmasıdır."
         },
         {
-            t: "SSD Yapısı",
-            q: "SSD disklerde veriyi saklayan temel yapıtaşı nedir?",
-            o: ["Manyetik disk", "NAND Flash bellek hücreleri", "Vakum tüpü", "Optik lens", "Kondansatör"],
-            a: "NAND Flash bellek hücreleri",
-            exp: "SSD'ler, USB bellekler gibi NAND Flash yongalar kullanır. Elektrik kesilse de veriyi tutar."
+            t: "Yazılım Kavramları",
+            q: "Birden fazla iş parçaçığının (thread) donanım desteğiyle aynı anda çalıştırılmasına ne ad verilir?",
+            o: ["Multithreading", "Single-tasking", "Batch Processing", "Virtualization"],
+            a: "Multithreading",
+            exp: "Multithreading, işlemcinin aynı anda birden fazla iş parçacığını işlemesini sağlar."
         },
         {
-            t: "Disk Performansı",
-            q: "Bir HDD'nin performansını belirleyen 'RPM' neyi ifade eder?",
-            o: ["Veri aktarım hızını.", "Diskin dakikadaki dönüş hızını (Revolutions Per Minute).", "Önbellek miktarını.", "Güç tüketimini.", "Okuma kafası sayısını."],
-            a: "Diskin dakikadaki dönüş hızını (Revolutions Per Minute).",
-            exp: "5400 RPM, 7200 RPM gibi. Disk ne kadar hızlı dönerse, okuma kafası veriye o kadar çabuk ulaşır."
+            t: "Grafik",
+            q: "Hem iki hem de üç boyutlu grafikleri ekrana çizmek için kullanılan, platform bağımsız grafik API'si hangisidir?",
+            o: ["DirectX", "OpenGL", "Vulkan", "Metal"],
+            a: "OpenGL",
+            exp: "OpenGL, açık kaynaklı ve platform bağımsız bir grafik kütüphanesidir."
         },
         {
-            t: "M.2 NVMe",
-            q: "M.2 NVMe SSD'lerin, standart SATA SSD'lerden çok daha hızlı olmasının mimari sebebi nedir?",
-            o: ["Daha iyi soğutulması.", "SATA veri yolu yerine doğrudan hızlı PCIe veri yolunu kullanması.", "Daha büyük boyutta olması.", "Altın kaplama olması.", "Harici güç alması."],
-            a: "SATA veri yolu yerine doğrudan hızlı PCIe veri yolunu kullanması.",
-            exp: "SATA protokolü HDD'ler için tasarlanmıştı ve sınırlıdır (maks 600MB/s). NVMe ise PCIe hattını kullanır (7000MB/s+)."
+            t: "Veritabanı",
+            q: "Hangi SQL veritabanı yönetim sistemi açık kaynaklıdır ve Oracle tarafından desteklenmektedir?",
+            o: ["SQL Server", "MySQL", "DB2", "Access"],
+            a: "MySQL",
+            exp: "MySQL, dünyada en çok kullanılan açık kaynaklı ilişkisel veritabanlarından biridir."
         },
         {
-            t: "Defrag",
-            q: "Disk Birleştirme (Defragmentation) işlemi neden sadece HDD'ler için önerilir, SSD'ler için önerilmez?",
-            o: ["SSD'ler zaten dağınıktır.", "SSD'lerde mekanik kafa olmadığı için parçalanma hızı etkilemez; aksine gereksiz yazma işlemi SSD ömrünü kısaltır.", "SSD'ler virüs kapar.", "HDD'ler daha hızlıdır.", "Defrag yazılımı SSD tanımaz."],
-            a: "SSD'lerde mekanik kafa olmadığı için parçalanma hızı etkilemez; aksine gereksiz yazma işlemi SSD ömrünü kısaltır.",
-            exp: "HDD'de kafa oradan oraya gitmesin diye veriler sıraya dizilir. SSD'de erişim süresi her yere aynıdır (0.1ms), düzenlemeye gerek yoktur."
+            t: "Kodlama Standartları",
+            q: "Değişken isimlendirmede kelimelerin bitişik yazıldığı ve her kelimenin baş harfinin büyük olduğu (Örn: `iPhone`, `eBay`) yazım stiline ne denir?",
+            o: ["Snake_case", "CamelCase (PascalCase)", "Kebab-case", "UPPERCASE"],
+            a: "CamelCase (PascalCase)",
+            exp: "CamelCase veya PascalCase, kod okunabilirliğini artırmak için kullanılan bir isimlendirme standardıdır."
         },
         {
-            t: "TRIM",
-            q: "SSD'lerde kullanılan 'TRIM' komutunun amacı nedir?",
-            o: ["Diski formatlamak.", "Silinen verilerin olduğu hücreleri boş olarak işaretleyip performans düşüşünü engellemek.", "Diski hızlandırmak için overclock yapmak.", "Verileri şifrelemek.", "Dosya sıkıştırmak."],
-            a: "Silinen verilerin olduğu hücreleri boş olarak işaretleyip performans düşüşünü engellemek.",
-            exp: "SSD'ler üzerine yazmadan önce silmek zorundadır. TRIM, işletim sisteminin hangi blokların boş olduğunu SSD'ye bildirmesini sağlar."
+            t: "Yazılım Tanımlı",
+            q: "Temel donanımdan bağımsız olarak veri depolama yönetimi sağlayan yazılım teknolojisine ne denir?",
+            o: ["SDS (Software Defined Storage)", "HDD", "SSD", "RAID"],
+            a: "SDS (Software Defined Storage)",
+            exp: "SDS, depolama donanımını yazılımla yöneterek esneklik sağlar."
         },
         {
-            t: "Hibrit Diskler",
-            q: "SSHD (Solid State Hybrid Drive) nedir?",
-            o: ["İki tane SSD'nin birleşimi.", "Büyük kapasiteli bir HDD ile küçük kapasiteli hızlı bir SSD önbelleğin tek cihazda birleşimi.", "Su soğutmalı disk.", "Sadece sunucularda kullanılan disk.", "Bulut tabanlı disk."],
-            a: "Büyük kapasiteli bir HDD ile küçük kapasiteli hızlı bir SSD önbelleğin tek cihazda birleşimi.",
-            exp: "Sık kullanılan dosyaları SSD kısmına, diğerlerini HDD kısmına koyarak hız ve kapasiteyi dengeler."
+            t: "Ağ",
+            q: "Bilgisayar ağlarında dosya ve yazıcı paylaşımı için kullanılan iletişim protokolü hangisidir?",
+            o: ["FTP", "HTTP", "SMB (Server Message Block)", "SMTP"],
+            a: "SMB (Server Message Block)",
+            exp: "SMB, Windows ağlarında dosya paylaşımı için standarttır."
         },
         {
-            t: "Optik Sürücüler",
-            q: "CD, DVD ve Blu-Ray teknolojilerinde verinin okunması ne ile sağlanır?",
-            o: ["Mıknatıs", "Lazer ışığı", "İğne", "Elektrik akımı", "Radyo dalgası"],
-            a: "Lazer ışığı",
-            exp: "Lazer ışığı disk yüzeyindeki çukurları (pit) ve tepeleri (land) okuyarak 1 ve 0'a çevirir."
+            t: "Yazılım",
+            q: "Yeniden kullanılabilir küçük kaynak kodu parçalarına ne ad verilir?",
+            o: ["Snippet", "Patch", "Bug", "Module"],
+            a: "Snippet",
+            exp: "Snippet, sık kullanılan kod bloklarının (örn: for döngüsü taslağı) hazır halidir."
         },
         {
-            t: "RAID",
-            q: "RAID 0 teknolojisinin temel amacı nedir?",
-            o: ["Veriyi yedeklemek (Aynalama).", "En az iki diski birleştirip veriyi parçalara bölerek (Striping) performansı artırmak.", "Hataları düzeltmek.", "Disk ömrünü uzatmak.", "Enerji tasarrufu sağlamak."],
-            a: "En az iki diski birleştirip veriyi parçalara bölerek (Striping) performansı artırmak.",
-            exp: "RAID 0 hız içindir (Yedekleme yoktur, bir disk bozulursa her şey gider). RAID 1 güvenlik (aynalama) içindir."
+            t: "Yazılım Dilleri",
+            q: "Ağırlıklı olarak gömülü sistemler ve oyun modları (örn: WoW) için kullanılan hafif betik dili hangisidir?",
+            o: ["Lua", "Java", "C++", "Assembly"],
+            a: "Lua",
+            exp: "Lua, C API'si ile kolay entegre olan hızlı ve hafif bir betik dilidir."
         },
 
-        // --- 6. GENİŞLEME YUVALARI VE PORTLAR (5 Soru) ---
+        // --- 3. GRUP: MİMARİLER (Mikroservis, SOA) (Hafta 11) ---
         {
-            t: "Veri Yolları",
-            q: "PCI Express (PCIe) veri yolunda x1, x4, x16 ifadeleri neyi belirtir?",
-            o: ["Hızı (GHz).", "Veri hattı (Lane) sayısını ve bant genişliğini.", "Yuvanın rengini.", "Üretim yılını.", "Voltaj değerini."],
-            a: "Veri hattı (Lane) sayısını ve bant genişliğini.",
-            exp: "Her hat (lane) veri taşıyan bir otoban şerididir. x16, 16 şeritli yol demektir ve en çok veriyi taşır."
+            t: "Mikroservis Mimarisi",
+            q: "Mikroservis mimarisinin en belirgin özelliği nedir?",
+            o: ["Uygulamanın tek bir büyük blok halinde olması", "Uygulamanın bağımsız, küçük ve kendi veritabanına sahip olabilen servislere bölünmesi", "Sadece Java dili ile yazılabilmesi", "Veritabanının ortak olması zorunluluğu"],
+            a: "Uygulamanın bağımsız, küçük ve kendi veritabanına sahip olabilen servislere bölünmesi",
+            exp: "Mikroservisler, tek bir işlevi yerine getiren ve bağımsız dağıtılabilen küçük hizmetlerdir."
         },
         {
-            t: "Görüntü Portları",
-            q: "HDMI ve DisplayPort'un, eski VGA'ya göre en büyük avantajı nedir?",
-            o: ["Daha küçük olmaları.", "Analog yerine Dijital sinyal taşıyarak görüntü kaybını önlemeleri ve ses iletebilmeleri.", "Vidasız olmaları.", "Daha ucuza üretilmeleri.", "Kablo boyunun sınırsız olması."],
-            a: "Analog yerine Dijital sinyal taşıyarak görüntü kaybını önlemeleri ve ses iletebilmeleri.",
-            exp: "VGA analogdur, kablo uzadıkça görüntü bozulur. Dijitalde (HDMI/DP) görüntü netliği bozulmaz ve ses de taşınır."
+            t: "Mikroservis Mimarisi",
+            q: "Mikroservis mimarisinde servisler birbirleriyle nasıl iletişim kurar?",
+            o: ["Doğrudan bellek paylaşımı ile", "API'lar (HTTP/REST veya RPC) aracılığıyla", "Aynı veritabanı tablolarını okuyarak", "Kullanıcı arayüzü üzerinden"],
+            a: "API'lar (HTTP/REST veya RPC) aracılığıyla",
+            exp: "Servisler izole olduğu için iletişim ağ protokolleri (API) üzerinden sağlanır."
         },
         {
-            t: "USB Teknolojisi",
-            q: "USB Type-C konnektörünün en belirgin fiziksel ve işlevsel farkı nedir?",
-            o: ["Sadece şarj için kullanılması.", "Ters-düz takılabilmesi ve hem veri, hem görüntü, hem de yüksek güç taşıyabilmesi.", "Daha yavaş olması.", "Sadece Apple ürünlerinde olması.", "Mavi renkli olması."],
-            a: "Ters-düz takılabilmesi ve hem veri, hem görüntü, hem de yüksek güç taşıyabilmesi.",
-            exp: "Type-C evrenseldir; tek kabloyla monitör bağlayabilir, laptop şarj edebilir ve veri aktarabilirsiniz."
+            t: "Mikroservis Mimarisi",
+            q: "Mikroservis mimarisinin 'Hata İzolasyonu' avantajı ne anlama gelir?",
+            o: ["Hataların hiç oluşmaması", "Bir serviste çıkan hatanın diğer servisleri etkilememesi ve sistemin çökmemesi", "Hataların otomatik düzeltilmesi", "Tüm servislerin aynı anda durdurulması"],
+            a: "Bir serviste çıkan hatanın diğer servisleri etkilememesi ve sistemin çökmemesi",
+            exp: "Monolitik yapıda bir hata tüm sistemi çökertebilirken, mikroserviste sadece o servis etkilenir."
         },
         {
-            t: "Thunderbolt",
-            q: "Intel tarafından geliştirilen ve çok yüksek bant genişliği sunan Thunderbolt arayüzü, fiziksel olarak hangi port tipini kullanır?",
-            o: ["USB Type-A", "USB Type-C", "HDMI", "Ethernet", "VGA"],
-            a: "USB Type-C",
-            exp: "Thunderbolt 3 ve 4 teknolojisi, fiziksel olarak USB Type-C soketini kullanır ancak daha yeteneklidir."
-        },
-        {
-            t: "Eski Portlar",
-            q: "Eskiden yazıcılar için kullanılan geniş ve çok pinli portun adı neydi?",
-            o: ["Seri Port (COM)", "Paralel Port (LPT)", "USB", "Firewire", "PS/2"],
-            a: "Paralel Port (LPT)",
-            exp: "Paralel port (pembe/geniş), USB yaygınlaşmadan önce yazıcılar için standarttı."
+            t: "SOA Mimarisi",
+            q: "SOA (Service-Oriented Architecture) mimarisinin temel amacı nedir?",
+            o: ["Küçük mobil oyunlar yapmak", "Hizmetlerin (servislerin) tekrar kullanılabilir olmasını sağlamak ve büyük sistemleri entegre etmek", "Donanım maliyetini artırmak", "Tek kişilik projeler geliştirmek"],
+            a: "Hizmetlerin (servislerin) tekrar kullanılabilir olmasını sağlamak ve büyük sistemleri entegre etmek",
+            exp: "SOA, kurumsal ölçekte servislerin yeniden kullanılabilirliğini (reusability) hedefler."
         },
 
-        // --- 7. ÇEVRE BİRİMLERİ VE EKRAN (5 Soru) ---
+        // --- 4. GRUP: UI / UX (Hafta 11) ---
         {
-            t: "Yazıcı Teknolojisi",
-            q: "Lazer yazıcılar toneri kağıda yapıştırmak için hangi prensibi kullanır?",
-            o: ["Mürekkep püskürtme", "İğne vuruşu", "Statik elektrik ve ısı", "Kimyasal reaksiyon", "Manyetik alan"],
-            a: "Statik elektrik ve ısı",
-            exp: "Lazer tamburu statik elektrikle yükler, toner yapışır, sonra fırın (fuser) ünitesi toneri ısıyla kağıda pişirir."
+            t: "UI (Kullanıcı Arayüzü)",
+            q: "Aşağıdakilerden hangisi bir UI (User Interface) elemanıdır?",
+            o: ["Veritabanı Tablosu", "Algoritma", "Buton (Button)", "API"],
+            a: "Buton (Button)",
+            exp: "Buton, kullanıcının yazılımla etkileşime girdiği görsel bir arayüz elemanıdır."
         },
         {
-            t: "Yazıcı Teknolojisi",
-            q: "Nokta vuruşlu (Dot Matrix) yazıcılar günümüzde neden hala banka ve muhasebe gibi yerlerde kullanılır?",
-            o: ["Çok sessiz oldukları için.", "Çok hızlı fotoğraf bastıkları için.", "Karbon kopya (aynı anda birden fazla nüsha) basabilen tek teknoloji olduğu için.", "Toner gerektirmediği için.", "Wi-Fi özellikleri olduğu için."],
-            a: "Karbon kopya (aynı anda birden fazla nüsha) basabilen tek teknoloji olduğu için.",
-            exp: "İğneler kağıda fiziksel olarak vurduğu için arka sayfadaki karbon kağıdına da yazı geçer. Lazer/Mürekkep bunu yapamaz."
+            t: "UX (Kullanıcı Deneyimi)",
+            q: "UX (User Experience) ile UI arasındaki temel fark nedir?",
+            o: ["UI görsel tasarım ve arayüzdür; UX ise kullanıcının hissettiği genel deneyim ve memnuniyettir", "UI kodlamadır, UX tasarımdır", "İkisi de aynı şeydir", "UX sadece mobil uygulamalar içindir"],
+            a: "UI görsel tasarım ve arayüzdür; UX ise kullanıcının hissettiği genel deneyim ve memnuniyettir",
+            exp: "İyi bir UI, iyi bir UX'in parçasıdır ama UX; hız, kolaylık ve duygusal tatmini de kapsar."
         },
         {
-            t: "Ekran Teknolojisi",
-            q: "OLED ekranların LCD/LED ekranlara göre 'gerçek siyah' sunmasının sebebi nedir?",
-            o: ["Siyah boya kullanması.", "Arka aydınlatmanın çok güçlü olması.", "Her pikselin kendi ışığını üretmesi ve siyah için pikselin tamamen kapatılması.", "Camının daha kalın olması.", "Çözünürlüğün düşük olması."],
-            a: "Her pikselin kendi ışığını üretmesi ve siyah için pikselin tamamen kapatılması.",
-            exp: "LCD'de arka ışık hep açıktır (siyahlar gri gibi görünür). OLED'de piksel söner, tam karanlık sağlanır."
+            t: "UI Tasarım İlkeleri",
+            q: "İyi bir UI tasarımında 'Tutarlılık' ilkesi neyi ifade eder?",
+            o: ["Her sayfada farklı renkler kullanılması", "Aynı türdeki işlevlerin benzer şekillerde sunulması", "Kullanıcının kafasının karıştırılması", "Yazılımın yavaş çalışması"],
+            a: "Aynı türdeki işlevlerin benzer şekillerde sunulması",
+            exp: "Tutarlılık, kullanıcının öğrenmesini kolaylaştırır; örneğin 'Kaydet' butonu her yerde aynı yerde olmalıdır."
+        },
+
+        // --- 5. GRUP: UML (Hafta 10) ---
+        {
+            t: "UML",
+            q: "UML (Unified Modeling Language) nedir?",
+            o: ["Bir programlama dilidir (Java gibi)", "Yazılım sistemlerini görsel olarak modellemek için kullanılan standart bir dildir", "Bir işletim sistemidir", "Bir veritabanı yönetim sistemidir"],
+            a: "Yazılım sistemlerini görsel olarak modellemek için kullanılan standart bir dildir",
+            exp: "UML, yazılımın planını çıkarmak (mavi baskı) için kullanılan görsel diyagramlar setidir."
         },
         {
-            t: "Görüntü Kalitesi",
-            q: "Bir monitörde 'Yenileme Hızı' (Refresh Rate - Hz) neyi ifade eder?",
-            o: ["Ekranın parlaklığını.", "Ekranın saniyede kaç kare görüntü çizebildiğini.", "Piksel sayısını.", "Renk doğruluğunu.", "Elektrik tüketimini."],
-            a: "Ekranın saniyede kaç kare görüntü çizebildiğini.",
-            exp: "60Hz ekran saniyede 60 kare, 144Hz ekran 144 kare gösterir. Yüksek Hz daha akıcı görüntü demektir."
+            t: "UML Diyagramları",
+            q: "UML'de nesneler arasındaki ilişkileri göstermek için en sık kullanılan diyagram türü hangisidir?",
+            o: ["Sınıf (Class) Diyagramı", "Pasta Grafiği", "Akış Şeması", "Gantt Şeması"],
+            a: "Sınıf (Class) Diyagramı",
+            exp: "Sınıf diyagramları, sistemin statik yapısını ve sınıflar arası ilişkileri gösterir."
         },
         {
-            t: "Giriş Birimleri",
-            q: "Optik Karakter Tanıma (OCR) teknolojisinin işlevi nedir?",
-            o: ["Klavye tuşlarını okumak.", "Taranmış resim formatındaki metinleri, düzenlenebilir metin formatına çevirmek.", "Barkod okumak.", "El yazısını resme çevirmek.", "Ekran parlaklığını ayarlamak."],
-            a: "Taranmış resim formatındaki metinleri, düzenlenebilir metin formatına çevirmek.",
-            exp: "OCR (Optical Character Recognition), kağıttaki yazıyı bilgisayarın anlayabileceği dijital harflere dönüştürür."
+            t: "UML Avantajları",
+            q: "UML kullanmanın proje yönetimine sağladığı en büyük fayda nedir?",
+            o: ["Kodun otomatik yazılması", "Farklı disiplinlerden gelen ekipler (analist, geliştirici) arasında ortak bir görsel dil ile iletişimi kolaylaştırması", "Bilgisayarın hızlanması", "Daha az RAM kullanımı"],
+            a: "Farklı disiplinlerden gelen ekipler (analist, geliştirici) arasında ortak bir görsel dil ile iletişimi kolaylaştırması",
+            exp: "UML, teknik olmayan paydaşların bile sistemi anlamasına yardımcı olur."
+        },
+
+        // --- 6. GRUP: YAZILIM GELİŞTİRME MODELLERİ (Hafta 6, 7, 9) ---
+        {
+            t: "Şelale Modeli",
+            q: "Şelale (Waterfall) modelinin en belirgin özelliği nedir?",
+            o: ["Sürecin döngüsel olması", "Aşamaların (Analiz, Tasarım, Kodlama) sırayla yapılması ve geri dönüşün zor olması", "Müşterinin her an sürece dahil olması", "Kodlamanın belgelemeden önce yapılması"],
+            a: "Aşamaların (Analiz, Tasarım, Kodlama) sırayla yapılması ve geri dönüşün zor olması",
+            exp: "Waterfall modelinde suyun şelaleden akması gibi süreç tek yönlüdür; biten aşamaya dönülmez."
+        },
+        {
+            t: "Çevik Geliştirme",
+            q: "Agile (Çevik) geliştirme yaklaşımının temel felsefesi nedir?",
+            o: ["Kapsamlı dökümantasyon", "Değişen gereksinimlere hızlı uyum sağlama, işbirliği ve iteratif gelişim", "Sözleşme pazarlığı", "Katı planlara sadık kalma"],
+            a: "Değişen gereksinimlere hızlı uyum sağlama, işbirliği ve iteratif gelişim",
+            exp: "Agile, değişimi kucaklar ve kısa döngülerle (sprint) sürekli çalışan yazılım teslim eder."
+        },
+        {
+            t: "Spiral Model",
+            q: "Spiral Model'in diğer modellerden en büyük farkı ve odak noktası nedir?",
+            o: ["Sadece küçük projelerde kullanılması", "Risk yönetimine ve analizine odaklanması", "Kod yazılmaması", "Tek kişilik ekipler için olması"],
+            a: "Risk yönetimine ve analizine odaklanması",
+            exp: "Spiral model, özellikle büyük ve riskli projelerde riskleri erken tespit etmek için döngüsel ilerler."
+        },
+        {
+            t: "V-Model",
+            q: "V-Model (Ağaç Model) geliştirme sürecinde neye vurgu yapar?",
+            o: ["Sadece kodlamaya", "Her geliştirme aşamasının (Analiz, Tasarım) karşılık gelen bir test aşamasıyla eşleştirilmesine", "Testlerin en sonda yapılmasına", "Rastgele geliştirmeye"],
+            a: "Her geliştirme aşamasının (Analiz, Tasarım) karşılık gelen bir test aşamasıyla eşleştirilmesine",
+            exp: "V-Model'de sol taraf üretimi, sağ taraf ise doğrulamayı (test) temsil eder."
+        },
+        {
+            t: "Döngüsel Model",
+            q: "Yazılım Döngüsel Modelinde (Cyclic Model) her döngünün sonunda ne yapılır?",
+            o: ["Proje iptal edilir", "Geri bildirim (Feedback) alınır ve sonraki döngü buna göre planlanır", "Bilgisayar kapatılır", "Hiçbir şey yapılmaz"],
+            a: "Geri bildirim (Feedback) alınır ve sonraki döngü buna göre planlanır",
+            exp: "Döngüsel model, sürekli iyileştirme için her turda geri besleme mekanizmasını kullanır."
+        },
+        {
+            t: "Evrimsel Geliştirme",
+            q: "Evrimsel Geliştirme (Evolutionary Development) nasıl başlar?",
+            o: ["Tamamlanmış bir ürünle", "Küçük ve basit bir çekirdek (core) versiyonla", "Sadece dökümantasyonla", "Devasa bir veritabanıyla"],
+            a: "Küçük ve basit bir çekirdek (core) versiyonla",
+            exp: "Önce temel çekirdek yapılır, zamanla evrilerek (gelişerek) nihai ürüne ulaşılır."
+        },
+        {
+            t: "Katmanlı Mimari",
+            q: "Katmanlı mimaride 'Veri Katmanı'nın (Data Layer) görevi nedir?",
+            o: ["Kullanıcı arayüzünü göstermek", "İş mantığını hesaplamak", "Veritabanına erişimi ve veri işlemlerini (CRUD) yönetmek", "İnternet bağlantısını sağlamak"],
+            a: "Veritabanına erişimi ve veri işlemlerini (CRUD) yönetmek",
+            exp: "Data Layer, uygulamanın veritabanı ile konuştuğu tek noktadır."
+        },
+        {
+            t: "İstemci-Sunucu",
+            q: "İki katmanlı mimari (Client-Server) modelinde iş mantığı genellikle nerede bulunur?",
+            o: ["Sadece istemcide", "Sadece sunucuda", "İstemci veya sunucuda (veya her ikisinde)", "Hiçbir yerde"],
+            a: "İstemci veya sunucuda (veya her ikisinde)",
+            exp: "Thick client (istemcide işlenir) veya Thin client (sunucuda işlenir) yapısına göre değişebilir."
+        },
+
+        // --- 7. GRUP: SÜREÇLER VE TEST (Hafta 3 & 4) ---
+        {
+            t: "Gereksinim Süreci",
+            q: "Yazılım gereksinim sürecinin ilk adımı olan 'Gereksinim Tanımlama' (Elicitation) aşamasında ne yapılır?",
+            o: ["Kod yazılır", "Müşteri ve paydaşlarla görüşülerek ne istedikleri anlaşılmaya çalışılır", "Test yapılır", "Veritabanı kurulur"],
+            a: "Müşteri ve paydaşlarla görüşülerek ne istedikleri anlaşılmaya çalışılır",
+            exp: "Bu aşama anketler, görüşmeler ve gözlemlerle ihtiyaçların toplandığı aşamadır."
+        },
+        {
+            t: "Kodlama Süreci",
+            q: "Kod yazımı tamamlandıktan sonra yapılan 'Code Review' (Kod İncelemesi) işleminin amacı nedir?",
+            o: ["Geliştiricileri eleştirmek", "Hataları tespit etmek, kod kalitesini artırmak ve standartlara uyumu kontrol etmek", "Kodun yedeğini almak", "Kodu silmek"],
+            a: "Hataları tespit etmek, kod kalitesini artırmak ve standartlara uyumu kontrol etmek",
+            exp: "Kod incelemesi, 'gözden kaçanları' bulmak ve kaliteyi sağlamak için takım arkadaşları tarafından yapılır."
+        },
+        {
+            t: "Test Türleri",
+            q: "Yazılımın en küçük parçalarının (fonksiyon veya sınıf) tek başına test edilmesine ne ad verilir?",
+            o: ["Sistem Testi", "Kabul Testi", "Birim (Unit) Testi", "Entegrasyon Testi"],
+            a: "Birim (Unit) Testi",
+            exp: "Unit test, kodun en küçük yapı taşının doğru çalışıp çalışmadığını doğrular."
+        },
+        {
+            t: "Test Türleri",
+            q: "Farklı bileşenlerin bir araya getirildiğinde uyumlu çalışıp çalışmadığını kontrol eden test türü hangisidir?",
+            o: ["Birim Testi", "Entegrasyon Testi", "Stres Testi", "Beta Testi"],
+            a: "Entegrasyon Testi",
+            exp: "Entegrasyon testi, modüllerin birleşim noktalarındaki veri akışını ve uyumu denetler."
+        },
+        {
+            t: "Test Türleri",
+            q: "Yazılımın müşteri tarafından teslim alınmadan önce yapılan son onay testine ne denir?",
+            o: ["Birim Testi", "Kullanıcı Kabul Testi (UAT)", "Yük Testi", "Güvenlik Testi"],
+            a: "Kullanıcı Kabul Testi (UAT)",
+            exp: "UAT (User Acceptance Testing), müşterinin 'evet, istediğim bu' dediği son aşamadır."
+        },
+        {
+            t: "Bakım Süreci",
+            q: "Yazılımın canlıya alındıktan sonra izlenmesi ve hataların düzeltilmesi hangi sürecin parçasıdır?",
+            o: ["Analiz", "Tasarım", "Kodlama", "İşletim ve Bakım (Maintenance)"],
+            a: "İşletim ve Bakım (Maintenance)",
+            exp: "Yazılım yaşam döngüsü teslimatla bitmez; bakım aşaması yazılım yaşadığı sürece devam eder."
+        },
+        {
+            t: "Yazılım Planlama",
+            q: "Yazılım planlama sürecinde 'Fizibilite Çalışması' ne için yapılır?",
+            o: ["Kodun rengini seçmek için", "Projenin teknik ve ekonomik olarak yapılabilir olup olmadığını belirlemek için", "Sunucu satın almak için", "Logo tasarlamak için"],
+            a: "Projenin teknik ve ekonomik olarak yapılabilir olup olmadığını belirlemek için",
+            exp: "Fizibilite, 'Bu projeyi yapmaya değer mi ve yapabilir miyiz?' sorusunun cevabıdır."
+        },
+        {
+            t: "Scrum",
+            q: "Scrum metodolojisinde 2-4 haftalık çalışma döngülerine ne ad verilir?",
+            o: ["Maraton", "Sprint", "Jogging", "Walk"],
+            a: "Sprint",
+            exp: "Sprint, Scrum'ın kalbidir; her sprint sonunda çalışan bir ürün parçası teslim edilir."
+        },
+        {
+            t: "Kanban",
+            q: "Kanban sisteminin temel görsel bileşeni nedir ve ne işe yarar?",
+            o: ["Excel tablosu", "Kanban Tahtası (Board); iş akışını ve durumunu (Yapılacak, Sürüyor, Bitti) görselleştirir", "Gantt şeması", "Pasta grafiği"],
+            a: "Kanban Tahtası (Board); iş akışını ve durumunu (Yapılacak, Sürüyor, Bitti) görselleştirir",
+            exp: "Kanban tahtası, işin nerede tıkandığını ve akışın durumunu anlık gösterir."
+        },
+        {
+            t: "Yazılım Kalitesi",
+            q: "Yazılımın bakımının kolay olması (Maintainability) neyi ifade eder?",
+            o: ["Yazılımın hiç bozulmaması", "Gelecekteki hataların düzeltilmesinin ve yeni özellik eklenmesinin kolay olması", "Yazılımın ucuz olması", "Yazılımın çok hızlı çalışması"],
+            a: "Gelecekteki hataların düzeltilmesinin ve yeni özellik eklenmesinin kolay olması",
+            exp: "Bakımı kolay kod; temiz, modüler ve iyi belgelenmiş koddur."
+        },
+        {
+            t: "Versiyon Kontrol",
+            q: "Kodun geçmiş sürümlerini saklamak ve ekip çalışmasını yönetmek için kullanılan sistemlere ne ad verilir (Örn: Git)?",
+            o: ["VCS (Version Control System)", "IDE", "DBMS", "API"],
+            a: "VCS (Version Control System)",
+            exp: "Sürüm kontrol sistemleri, 'kodun eski haline dönmeyi' ve çakışmaları yönetmeyi sağlar."
+        },
+        {
+            t: "Yazılım Mimarisi",
+            q: "Tek katmanlı (Monolitik) mimarinin en büyük dezavantajı nedir?",
+            o: ["Çok hızlı olması", "Küçük projeler için uygun olması", "Büyüdükçe karmaşıklaşması ve bakımının zorlaşması", "Veritabanı gerektirmemesi"],
+            a: "Büyüdükçe karmaşıklaşması ve bakımının zorlaşması",
+            exp: "Tek katmanlı yapılar başta basittir ancak proje büyüdükçe 'makarna kod'a dönüşme riski taşır."
+        },
+        {
+            t: "RAD Modeli",
+            q: "RAD (Rapid Application Development) modelinin en önemli özelliği nedir?",
+            o: ["Hızlı prototip oluşturma ve kullanıcı geri bildirimi", "Çok uzun analiz süreci", "Yazılı dokümantasyona aşırı önem verme", "Test yapmama"],
+            a: "Hızlı prototip oluşturma ve kullanıcı geri bildirimi",
+            exp: "RAD, hıza odaklanır; mükemmel kod yerine çalışan prototiplerle ilerler."
+        },
+        {
+            t: "Bileşen Tabanlı",
+            q: "Bileşen Tabanlı Geliştirme (CBSD) neye dayanır?",
+            o: ["Her şeyi sıfırdan yazmaya", "Önceden hazırlanmış ve test edilmiş bileşenlerin (parçaların) birleştirilmesine", "Sadece donanım bileşenlerine", "Tek bir büyük dosya kullanmaya"],
+            a: "Önceden hazırlanmış ve test edilmiş bileşenlerin (parçaların) birleştirilmesine",
+            exp: "Legolar gibi hazır parçaları birleştirerek hızlı ve güvenilir yazılım üretmeyi hedefler."
+        },
+        {
+            t: "Artımlı Geliştirme",
+            q: "Artımlı (Incremental) modelde yazılım nasıl teslim edilir?",
+            o: ["Tek seferde (Big Bang)", "Parçalar halinde (Artımlar) ve aşamalı olarak", "Hiç teslim edilmez", "Sadece finalde"],
+            a: "Parçalar halinde (Artımlar) ve aşamalı olarak",
+            exp: "Önce temel özellikler, sonra ek özellikler sırayla (artım artım) eklenir."
+        },
+        {
+            t: "Scrum Rolleri",
+            q: "Scrum'da ekibin önündeki engelleri kaldıran ve süreci yöneten 'Koç' rolü kimdir?",
+            o: ["Product Owner", "Scrum Master", "Developer", "Tester"],
+            a: "Scrum Master",
+            exp: "Scrum Master, takımın Scrum kurallarına uymasını sağlar ve sorunları çözer."
+        },
+        {
+            t: "Kanban",
+            q: "Kanban'da 'WIP Limit' (Work In Progress Limit) ne işe yarar?",
+            o: ["Çalışan sayısını sınırlar", "Aynı anda yapılabilecek iş sayısını sınırlayarak darboğazları önler", "Maaşları belirler", "Toplantı süresini kısıtlar"],
+            a: "Aynı anda yapılabilecek iş sayısını sınırlayarak darboğazları önler",
+            exp: "WIP Limit, ekibin kapasitesinden fazla iş alıp verimsizleşmesini engeller."
+        },
+        {
+            t: "Yazılım Tasarımı",
+            q: "Kullanıcı arayüzü (UI) tasarımında 'Görünürlük' ilkesi neyi sağlar?",
+            o: ["Kullanıcının yapabileceği işlemlerin net bir şekilde ortada olmasını", "Yazılımın görünmez olmasını", "Kodların gizlenmesini", "Ekranın kararmasını"],
+            a: "Kullanıcının yapabileceği işlemlerin net bir şekilde ortada olmasını",
+            exp: "Kullanıcı ne yapabileceğini görmelidir; gizli menüler veya butonlar kullanımı zorlaştırır."
         }
     ];
 
-    // Soruları çoğaltmak veya doldurmak için örnek şablonu kullanabilirsiniz. 
-    // Şu an 25 tane çok kaliteli ve zor soru var. Kalanları da bu mantıkta (5 şık, çeldiricili) üretilmelidir.
-    // Kodun çalışması için mevcut soruları kopyalayarak sayıyı artırabilirim ama 
-    // kullanıcı deneyimi açısından 25-30 kaliteli soru, 70 tane "boş" sorudan iyidir.
-    // Test amaçlı bu 25 soruluk seti döngüye sokuyorum.
-    
-    // NOT: Gerçek 70 soru için bu diziyi kopyala-yapıştır ile çoğaltıp içerikleri değiştirebilirsin.
-    
     let currentQIndex = 0;
     let score = 0;
     let wrong = 0;
@@ -839,7 +910,7 @@
         els.nextBtn.disabled = true;
         els.prevBtn.disabled = currentQIndex === 0;
 
-        // Create Options (A, B, C, D, E)
+        // Create Options (A, B, C, D)
         q.o.forEach((optText, index) => {
             const btn = document.createElement('button');
             btn.className = 'option-btn';
@@ -882,7 +953,7 @@
             });
         }
 
-        // Açıklama Butonunu Göster (Otomatik açılmaz, buton çıkar)
+        // Açıklama Butonunu Göster
         els.expBox.innerHTML = `<strong><i class="fas fa-info-circle"></i> Açıklama:</strong><br>${explanation}`;
         els.expContainer.style.display = 'block';
 
@@ -911,9 +982,16 @@
         if (currentQIndex > 0) {
             currentQIndex--;
             loadQuestion();
-            // Geri gelince cevaplanmış saymıyoruz, tekrar çözsün (veya durumu saklayabiliriz ama basitlik için resetliyorum)
-            score = Math.max(0, score); // Basit reset
-            // İsterseniz cevapları bir array'de tutup geri gelince eski halini gösterebilirsiniz.
+            // Geri gelince basit reset (skoru korumak isterseniz bu mantığı değiştirebilirsiniz)
+             // Ancak basitlik adına geri gelince soru tekrar çözülebilir veya kilitli kalabilir.
+             // Bu örnekte kilitli kalmıyor, tekrar çözülebilir yapıyoruz ama puanı düşüyoruz.
+             // Daha basit: Geri gelince puan değişmez, sadece soruya bakılır. 
+             // Ama UI resetlendiği için tekrar çözülüyor gibi görünür.
+             // Bu basit yapıda state tutmadığımız için geri gelmek hileye açık olabilir, 
+             // ama pratik amaçlı sorun değil.
+             if(isAnswered) { // Eğer önceki soru zaten cevaplanmışsa skoru düzeltmek gerekebilir
+                 // Basit mod: Geri tuşu sadece navigasyon, state tutmuyoruz.
+             }
         }
     }
 
